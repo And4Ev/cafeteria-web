@@ -1,0 +1,179 @@
+<!-- HEADER -->
+<%- include('partials/header') %>
+<body>
+   
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-left">
+            <div class="hero-clock">
+                <div class="clock-time" id="clockTime">09:00</div>
+            </div>
+            <div class="hero-tagline">Tu café de especialidad</div>
+            <h1 class="hero-title">Cada<br>hora<br>sabe a<br><em>café</em></h1>
+            <div class="hero-ctas">
+                <a href="#menu" class="btn-primary">Ver la carta</a>
+                <a href="#salas" class="btn-ghost">Reservar sala</a>
+            </div>
+        </div>
+        <div class="hero-right"><!-- background-image --></div>
+    </section>
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="about-sidebar reveal">
+            <div class="about-number">01</div>
+            <div class="about-label">Nuestra filosofía</div>
+            <h2 class="about-heading">El café<br>bueno no<br>debería ser<br><em>un lujo.</em></h2>
+        </div>
+        <div class="about-content">
+            <div class="about-pillars">
+                <div class="pillar reveal reveal-delay-1">
+                    <div class="pillar-title">Café de especialidad</div>
+                    <div class="pillar-text">Single origins, procesos naturales y métodos de extracción cuidados al
+                        detalle.</div>
+                </div>
+                <div class="pillar reveal reveal-delay-2">
+                    <div class="pillar-title">Café honesto</div>
+                    <div class="pillar-text">Buen café a precio justo. Para el estudiante, el trabajador, el día a día.
+                    </div>
+                </div>
+                <div class="pillar reveal reveal-delay-3">
+                    <div class="pillar-title">Carta de temporada</div>
+                    <div class="pillar-text">Frappés en verano, cafés con calabaza en invierno. El menú cambia con el
+                        tiempo.</div>
+                </div>
+                <div class="pillar reveal reveal-delay-4">
+                    <div class="pillar-title">Espacio de trabajo</div>
+                    <div class="pillar-text">Salas privadas con enchufes, wifi y combos especiales para grupos y
+                        equipos.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- MENU -->
+    <section id="menu">
+        <div class="section-header reveal">
+            <div>
+                <div class="section-label">02 — Lo que servimos</div>
+                <h2 class="section-title">La <em>carta</em></h2>
+            </div>
+            <div class="season-toggle">
+                <button class="season-btn active" onclick="setSeason('winter', this)">☕ Invierno</button>
+                <button class="season-btn" onclick="setSeason('summer', this)">🧊 Verano</button>
+            </div>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+            <!-- filled by JS -->
+        </div>
+    </section>
+    <!-- COMBOS -->
+    <div class="combos-band">
+        <div class="combo-intro reveal">
+            <h2>Combos<br>para tu<br><em style="font-style:italic;color:var(--roast)">momento.</em></h2>
+            <p>Diseñados para que tu hora favorita sea aún mejor.</p>
+        </div>
+        <div class="combo-card reveal reveal-delay-1">
+            <div class="combo-time">7:00 – 11:00</div>
+            <div class="combo-name">Buenos días</div>
+            <div class="combo-items">Café solo o con leche + bagel de tu elección + zumo natural.<br>El desayuno que te
+                mereces.</div>
+        </div>
+        <div class="combo-card reveal reveal-delay-2">
+            <div class="combo-time">16:00 – 19:00</div>
+            <div class="combo-name">La hora del estudio</div>
+            <div class="combo-items">Café mediano + pieza de bollería + acceso a sala durante 2h.<br>Para los que van a
+                lo que van.</div>
+        </div>
+    </div>
+    <!-- SALAS -->
+    <section id="salas">
+        <div class="section-header reveal">
+            <div>
+                <div class="section-label" style="color:var(--green)">03 — Espacio de trabajo</div>
+                <h2 class="section-title" style="color:var(--ink)">Las <em style="color:var(--green)">salas</em></h2>
+            </div>
+            <a href="#" class="btn-primary" style="background:var(--green); margin-bottom:0.5rem">Ver todas las
+                salas</a>
+        </div>
+        <div class="salas-grid">
+            <div class="sala-main reveal">
+                <div class="sala-bg-pattern"></div>
+                <div class="sala-tag">Más popular</div>
+                <div class="sala-amenities">
+                    <div class="sala-ame">WiFi 1Gbps</div>
+                    <div class="sala-ame">6 enchufes</div>
+                    <div class="sala-ame">Pizarra</div>
+                    <div class="sala-ame">HDMI</div>
+                </div>
+                <div class="sala-name">The Studio<br>Sala A</div>
+                <div class="sala-desc">Nuestra sala estrella. Capacidad para 6 personas, diseñada para sesiones de
+                    trabajo intensas o reuniones de equipo. Incluye combo de bienvenida y cafés ilimitados.</div>
+                <a href="#" class="sala-link">Reservar ahora</a>
+            </div>
+            <div class="salas-side">
+                <div class="sala-mini reveal">
+                    <div class="sala-mini-cap">Hasta 2 personas</div>
+                    <div class="sala-mini-name">The Focus Pod</div>
+                    <div class="sala-mini-price">12€/h</div>
+                </div>
+                <div class="sala-mini reveal reveal-delay-1">
+                    <div class="sala-mini-cap">Hasta 4 personas</div>
+                    <div class="sala-mini-name">The Huddle</div>
+                    <div class="sala-mini-price">20€/h</div>
+                </div>
+                <div class="sala-mini reveal reveal-delay-2">
+                    <div class="sala-mini-cap">Hasta 8 personas</div>
+                    <div class="sala-mini-name">The Studio Sala B</div>
+                    <div class="sala-mini-price">35€/h</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- INSIDER -->
+    <section id="insider">
+        <div class="insider-left">
+            <div class="insider-badge reveal">
+                <div class="insider-badge-dot"></div>
+                <span>Nuevo programa de fidelidad</span>
+            </div>
+            <h2 class="insider-title reveal">Conviértete<br>en<br><em>Insider.</em></h2>
+            <div class="insider-perks reveal reveal-delay-2">
+                <div class="perk">
+                    <div class="perk-icon">☕</div>
+                    <div class="perk-title">Puntos por consumo</div>
+                    <div class="perk-text">Cada café suma. Canjéalos por productos o descuentos.</div>
+                </div>
+                <div class="perk">
+                    <div class="perk-icon">🗓</div>
+                    <div class="perk-title">Acceso anticipado</div>
+                    <div class="perk-text">La carta de verano e invierno llega a ti primero.</div>
+                </div>
+                <div class="perk">
+                    <div class="perk-icon">🔔</div>
+                    <div class="perk-title">Novedades exclusivas</div>
+                    <div class="perk-text">Avisos de nuevos orígenes, meriendas y eventos.</div>
+                </div>
+                <div class="perk">
+                    <div class="perk-icon">🏷</div>
+                    <div class="perk-title">Ofertas Insider</div>
+                    <div class="perk-text">Descuentos y combos que no aparecen en carta.</div>
+                </div>
+            </div>
+            <a href="#" class="insider-cta reveal reveal-delay-3">Quiero ser Insider</a>
+        </div>
+        <div class="insider-right">
+            <div class="insider-ring"></div>
+            <div class="insider-ring"></div>
+            <div class="insider-card-mock reveal">
+                <div class="card-chip"></div>
+                <div class="card-points-label">Puntos acumulados</div>
+                <div class="card-points">1.240 pts</div>
+                <div class="card-name">Nº Miembro</div>
+                <div class="card-logo">
+                    <img src="/images/dibujo-taza-cafe.png" alt="logo taza cafe">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <%- include('partials/footer') %>

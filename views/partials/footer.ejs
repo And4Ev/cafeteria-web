@@ -1,0 +1,116 @@
+<!-- FOOTER -->
+<footer>
+    <div class="footer-brand">
+      <h3>"La hora del café"</h3>
+      <p>Café de especialidad · Madrid</p>
+      <span>El café bueno no debería ser un lujo. Aquí para demostrarlo, taza a taza, hora a hora.</span>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Horario</h4>
+      <ul>
+        <li>Lun – Viernes 7:30–20:00</li>
+        <li>Sáb – Dom 9:00–21:00</li> 
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li>hola@coffeetime.es</li>
+        <li>Madrid, España</li>
+        <li>Lun–Dom 7:00–21:00</li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 La Hora del Café. Café de especialidad.</p>
+      <p>Diseñado por Andrea Aranda ☕</p>
+    </div>
+  </footer>
+  
+  
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  
+  
+  <script>
+  //CURSOR — granito de café
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mouseX = 0, mouseY = 0;
+  
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    cursor.style.left = mouseX + 'px';
+    cursor.style.top  = mouseY + 'px';
+  });
+  
+  function animateRing() { requestAnimationFrame(animateRing); }
+  animateRing();
+  
+  // CLOCK
+  function updateClock() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2,'0');
+    const m = String(now.getMinutes()).padStart(2,'0');
+    document.getElementById('clockTime').textContent = h + ':' + m;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+  
+  // MENU DATA
+  const menuWinter = [
+    { cat: 'Especialidad', name: 'Ethiopian Natural', desc: 'Notas de frutos rojos y jazmín. Single origin de Yirgacheffe.', price: '4.50', tag: 'Temporada' },
+    { cat: 'Especialidad', name: 'Cold Brew Espresso', desc: 'Extracción en frío 18h. Intenso, suave, sin acidez.', price: '3.80' },
+    { cat: 'Clásicos', name: 'Café con leche', desc: 'El de siempre. Café honesto con leche entera.', price: '1.80' },
+    { cat: 'Invierno', name: 'Pumpkin Spice Latte', desc: 'Café con leche, calabaza, canela y nata. El favorito de la temporada.', price: '4.20', tag: 'Invierno' },
+    { cat: 'Bagels', name: 'Everything Bagel', desc: 'Estilo Nueva York. Con queso crema y salmón ahumado.', price: '6.50' },
+    { cat: 'Bagels', name: 'Classic Plain', desc: 'Bagel tostado con queso crema y pepino. Simple y perfecto.', price: '4.90' },
+    { cat: 'Bollería', name: 'Croissant mantequilla', desc: 'Hojaldrado, crujiente, con mantequilla de calidad.', price: '2.20' },
+    { cat: 'Combos', name: 'Combo Insider', desc: 'Café de especialidad + bagel + bollería. Solo para miembros.', price: '9.90', tag: 'Insider' },
+  ];
+  
+  const menuSummer = [
+    { cat: 'Especialidad', name: 'Guatemalan Washed', desc: 'Notas de caramelo y nuez moscada. Limpio y redondo.', price: '4.50' },
+    { cat: 'Verano', name: 'Cold Frappé', desc: 'Café, leche, hielo y vainilla. Refrescante y energizante.', price: '4.80', tag: 'Verano' },
+    { cat: 'Verano', name: 'Matcha Latte Frío', desc: 'Matcha japonés premium con leche de avena y hielo.', price: '4.20', tag: 'Verano' },
+    { cat: 'Clásicos', name: 'Café con hielo', desc: 'Espresso doble sobre hielo. Rápido, frío, perfecto.', price: '2.50' },
+    { cat: 'Bagels', name: 'Smoked Salmon', desc: 'Bagel de sésamo, queso crema, salmón y alcaparras.', price: '7.20', tag: 'Top' },
+    { cat: 'Bagels', name: 'Avocado & Egg', desc: 'Bagel tostado con aguacate, huevo y cherry.', price: '6.80' },
+    { cat: 'Bollería', name: 'Muffin de limón', desc: 'Esponjoso, ácido y con glaseado de limón fresco.', price: '2.80' },
+    { cat: 'Combos', name: 'Combo Veranero', desc: 'Frappé o cold brew + bagel a elegir. El dúo perfecto.', price: '8.50', tag: 'Oferta' },
+  ];
+  
+  let currentSeason = 'winter';
+  
+  function renderMenu(data) {
+    const grid = document.getElementById('menuGrid');
+    grid.innerHTML = data.map(item => `
+      <div class="menu-card">
+        ${item.tag ? `<div class="menu-card-tag">${item.tag}</div>` : ''}
+        <div class="menu-card-cat">${item.cat}</div>
+        <div class="menu-card-name">${item.name}</div>
+        <div class="menu-card-desc">${item.desc}</div>
+        <div class="menu-card-price">${item.price}€</div>
+      </div>
+    `).join('');
+  }
+  
+  function setSeason(season, btn) {
+    currentSeason = season;
+    document.querySelectorAll('.season-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderMenu(season === 'winter' ? menuWinter : menuSummer);
+  }
+  
+  renderMenu(menuWinter);
+  
+  // SCROLL REVEAL
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+  
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+  </body>
+  </html>
