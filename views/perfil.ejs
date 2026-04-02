@@ -1,0 +1,178 @@
+<%- include('partials/header') %>
+<link rel="stylesheet" href="/css/pages/perfil.css">
+</header>
+<body>
+
+  <!-- ===================== HERO PERFIL ===================== -->
+  <section class="perfil-hero">
+    <div class="perfil-hero-inner">
+      <div class="perfil-hero-label">Mi cuenta</div>
+      <h1 class="perfil-hero-title">
+        Bienvenido,<br><em><%= usuario.username %>.</em>
+      </h1>
+      <p class="perfil-hero-sub">
+        Insider desde <%= new Date(usuario.fecha_registro).toLocaleDateString('es-ES', { day:'numeric', month:'long', year:'numeric' }) %>
+      </p>
+    </div>
+    <div class="perfil-hero-deco" aria-hidden="true">insider</div>
+    <form action="/logout" method="POST" class="perfil-logout-form">
+      <button type="submit" class="perfil-logout-btn">Cerrar sesión</button>
+    </form>
+  </section>
+
+  <!-- ===================== GRID PRINCIPAL ===================== -->
+  <section class="perfil-grid">
+
+    <!-- TARJETA PUNTOS -->
+    <div class="perfil-card-puntos reveal">
+      <div class="pcard-rings">
+        <div class="pcard-ring"></div>
+        <div class="pcard-ring"></div>
+      </div>
+      <div class="pcard-chip"></div>
+      <div class="pcard-points-label">Puntos acumulados</div>
+      <div class="pcard-points"><%= usuario.puntos || 0 %> <span>pts</span></div>
+      <div class="pcard-divider"></div>
+      <div class="pcard-bottom">
+        <div>
+          <div class="pcard-field-label">Miembro</div>
+          <div class="pcard-field-value"><%= usuario.username %></div>
+        </div>
+        <div>
+          <div class="pcard-field-label">Estado</div>
+          <div class="pcard-field-value pcard-status">
+            <span class="pcard-dot"></span> Insider
+          </div>
+        </div>
+        <div class="pcard-logo">
+          <img src="/images/dibujo-taza-cafe.png" alt="logo">
+        </div>
+      </div>
+    </div>
+
+    <!-- DATOS PERSONALES -->
+    <div class="perfil-datos reveal reveal-delay-1">
+      <div class="perfil-block-label">Datos personales</div>
+      <div class="perfil-datos-grid">
+        <div class="perfil-dato">
+          <div class="perfil-dato-label">Nombre completo</div>
+          <div class="perfil-dato-value"><%= usuario.nombre %></div>
+        </div>
+        <div class="perfil-dato">
+          <div class="perfil-dato-label">Usuario</div>
+          <div class="perfil-dato-value">@<%= usuario.username %></div>
+        </div>
+        <div class="perfil-dato">
+          <div class="perfil-dato-label">Email</div>
+          <div class="perfil-dato-value"><%= usuario.email %></div>
+        </div>
+        <div class="perfil-dato">
+          <div class="perfil-dato-label">Miembro desde</div>
+          <div class="perfil-dato-value">
+            <%= new Date(usuario.fecha_registro).toLocaleDateString('es-ES', { day:'numeric', month:'long', year:'numeric' }) %>
+          </div>
+        </div>
+        <div class="perfil-dato">
+          <div class="perfil-dato-label">Tipo de cuenta</div>
+          <div class="perfil-dato-value perfil-dato-badge">Insider — Nuevo</div>
+        </div>
+        <div class="perfil-dato">
+          <div class="perfil-dato-label">Puntos acumulados</div>
+          <div class="perfil-dato-value"><%= usuario.puntos || 0 %> pts</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VENTAJAS -->
+    <div class="perfil-ventajas reveal reveal-delay-2">
+      <div class="perfil-block-label">Tus ventajas Insider</div>
+      <div class="perfil-ventajas-list">
+
+        <div class="perfil-ventaja perfil-ventaja--active">
+          <div class="perfil-ventaja-icon">☕</div>
+          <div class="perfil-ventaja-info">
+            <div class="perfil-ventaja-title">Puntos por consumo</div>
+            <div class="perfil-ventaja-desc">Cada café suma puntos. Canjéalos por productos o descuentos.</div>
+          </div>
+          <div class="perfil-ventaja-badge">Activo</div>
+        </div>
+
+        <div class="perfil-ventaja perfil-ventaja--active">
+          <div class="perfil-ventaja-icon">🗓</div>
+          <div class="perfil-ventaja-info">
+            <div class="perfil-ventaja-title">Reserva de salas</div>
+            <div class="perfil-ventaja-desc">Acceso a reservar salas privadas con un clic desde tu perfil.</div>
+          </div>
+          <div class="perfil-ventaja-badge">Activo</div>
+        </div>
+
+        <div class="perfil-ventaja perfil-ventaja--locked">
+          <div class="perfil-ventaja-icon">🔔</div>
+          <div class="perfil-ventaja-info">
+            <div class="perfil-ventaja-title">Acceso anticipado a la carta</div>
+            <div class="perfil-ventaja-desc">Desbloquea a partir de 200 puntos acumulados.</div>
+          </div>
+          <div class="perfil-ventaja-badge perfil-ventaja-badge--locked">200 pts</div>
+        </div>
+
+        <div class="perfil-ventaja perfil-ventaja--locked">
+          <div class="perfil-ventaja-icon">🏷</div>
+          <div class="perfil-ventaja-info">
+            <div class="perfil-ventaja-title">Ofertas Insider exclusivas</div>
+            <div class="perfil-ventaja-desc">Descuentos y combos que no aparecen en carta. Desde 500 puntos.</div>
+          </div>
+          <div class="perfil-ventaja-badge perfil-ventaja-badge--locked">500 pts</div>
+        </div>
+
+        <div class="perfil-ventaja perfil-ventaja--locked">
+          <div class="perfil-ventaja-icon">🎁</div>
+          <div class="perfil-ventaja-info">
+            <div class="perfil-ventaja-title">Café de bienvenida gratis</div>
+            <div class="perfil-ventaja-desc">Un café gratis cada vez que visites. Desde 1.000 puntos.</div>
+          </div>
+          <div class="perfil-ventaja-badge perfil-ventaja-badge--locked">1.000 pts</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PROGRESO DE PUNTOS -->
+    <div class="perfil-progreso reveal">
+      <div class="perfil-block-label">Tu progreso</div>
+      <p class="perfil-progreso-sub">Acumula puntos con cada visita para desbloquear nuevas ventajas.</p>
+      <div class="perfil-prog-track">
+        <div class="perfil-prog-milestones">
+          <span>0</span><span>200</span><span>500</span><span>1.000</span>
+        </div>
+        <div class="perfil-prog-bar-wrap">
+          <div class="perfil-prog-bar" id="progBar" style="width: <%= Math.min((usuario.puntos || 0) / 10, 100) %>%;"></div>
+          <div class="perfil-prog-thumb" id="progThumb" style="left: calc(<%= Math.min((usuario.puntos || 0) / 10, 100) %>% - 10px);">
+            <span><%= usuario.puntos || 0 %></span>
+          </div>
+        </div>
+        <div class="perfil-prog-labels">
+          <div class="perfil-prog-label">
+            <div class="perfil-prog-dot perfil-prog-dot--done"></div>
+            <span>Nuevo Insider</span>
+          </div>
+          <div class="perfil-prog-label">
+            <div class="perfil-prog-dot <%= (usuario.puntos || 0) >= 200 ? 'perfil-prog-dot--done' : '' %>"></div>
+            <span>Acceso anticipado</span>
+          </div>
+          <div class="perfil-prog-label">
+            <div class="perfil-prog-dot <%= (usuario.puntos || 0) >= 500 ? 'perfil-prog-dot--done' : '' %>"></div>
+            <span>Ofertas exclusivas</span>
+          </div>
+          <div class="perfil-prog-label">
+            <div class="perfil-prog-dot <%= (usuario.puntos || 0) >= 1000 ? 'perfil-prog-dot--done' : '' %>"></div>
+            <span>Café gratis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+<%- include('partials/footer') %>
+
+</body>

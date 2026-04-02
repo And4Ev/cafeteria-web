@@ -1,0 +1,276 @@
+/* ===================== LAYOUT ===================== */
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* LADO IZQUIERDO */
+  .login-left {
+    background: var(--espresso);
+    padding: 8rem 4rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .login-left::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 70%, rgba(200,134,74,0.13) 0%, transparent 60%);
+  }
+
+  .login-brand-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--caramel);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .login-brand-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .login-brand-title em {
+    font-style: italic;
+    color: var(--caramel);
+  }
+
+  .login-brand-text {
+    font-size: 0.88rem;
+    color: rgba(245,237,224,0.5);
+    line-height: 1.8;
+    max-width: 360px;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .login-perks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .login-perk {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,237,224,0.45);
+  }
+
+  .login-perk-icon { font-size: 1rem; }
+
+  .login-deco {
+    position: absolute;
+    right: -2rem;
+    bottom: -3rem;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(7rem, 14vw, 13rem);
+    font-weight: 900;
+    font-style: italic;
+    color: rgba(200,134,74,0.04);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  /* LADO DERECHO */
+  .login-right {
+    background: var(--steam);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 4rem;
+  }
+
+  .login-panel {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .login-panel-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--caramel);
+    margin-bottom: 0.5rem;
+  }
+
+  .login-panel-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 2rem;
+    line-height: 1;
+  }
+
+  /* ALERTAS */
+  .login-alert {
+    padding: 0.8rem 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    border-left: 3px solid;
+  }
+
+  .login-alert--error {
+    background: rgba(139,58,42,0.08);
+    border-color: var(--rust);
+    color: var(--rust);
+  }
+
+  .login-alert--success {
+    background: rgba(61,90,62,0.08);
+    border-color: var(--green);
+    color: var(--green);
+  }
+
+  /* FORMULARIO */
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .lf-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.38rem;
+  }
+
+  .lf-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(26,18,9,0.45);
+  }
+
+  .lf-input-wrap {
+    position: relative;
+  }
+
+  .lf-input {
+    background: var(--cream);
+    border: 1px solid rgba(200,134,74,0.22);
+    padding: 0.82rem 1rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .lf-input-wrap .lf-input { padding-right: 2.8rem; }
+  .lf-input::placeholder { color: rgba(26,18,9,0.25); }
+  .lf-input:focus { border-color: var(--caramel); }
+
+  .lf-eye {
+    position: absolute;
+    right: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: rgba(26,18,9,0.3);
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .lf-eye:hover { color: var(--caramel); }
+
+  .lf-hint {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.52rem;
+    letter-spacing: 0.1em;
+    color: rgba(26,18,9,0.35);
+    min-height: 1em;
+  }
+
+  .lf-hint--error { color: var(--rust); }
+  .lf-hint--ok    { color: var(--green); }
+
+  /* Barra de fuerza de contraseña */
+  .lf-strength {
+    height: 3px;
+    background: rgba(200,134,74,0.12);
+    margin-top: 0.3rem;
+    overflow: hidden;
+  }
+
+  .lf-strength-bar {
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s, background 0.3s;
+  }
+
+  .lf-submit {
+    margin-top: 0.6rem;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* SWITCH */
+  .login-switch {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.82rem;
+    color: rgba(26,18,9,0.45);
+  }
+
+  .login-switch-btn {
+    background: transparent;
+    border: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--caramel);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    margin-left: 0.3rem;
+    transition: opacity 0.2s;
+  }
+
+  .login-switch-btn:hover { opacity: 0.7; }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width: 900px) {
+    .login-page { grid-template-columns: 1fr; min-height: auto; }
+    .login-left { min-height: 40vh; padding: 7rem 2.5rem 3.5rem; justify-content: flex-end; }
+    .login-right { padding: 3.5rem 2rem 5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .lf-row { grid-template-columns: 1fr; }
+    .login-right { padding: 2.5rem 1.5rem 4rem; }
+  }

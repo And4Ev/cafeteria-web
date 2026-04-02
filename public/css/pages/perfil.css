@@ -1,0 +1,446 @@
+/* ===================== HERO ===================== */
+.perfil-hero {
+    background: var(--espresso);
+    min-height: 44vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 8rem 4rem 4.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .perfil-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 75% 50%, rgba(200,134,74,0.1) 0%, transparent 60%);
+  }
+
+  .perfil-hero-inner { position: relative; z-index: 1; }
+
+  .perfil-hero-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--caramel);
+    margin-bottom: 1rem;
+  }
+
+  .perfil-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+
+  .perfil-hero-title em { font-style: italic; color: var(--caramel); }
+
+  .perfil-hero-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,237,224,0.35);
+  }
+
+  .perfil-hero-deco {
+    position: absolute;
+    right: -1rem;
+    bottom: -3rem;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(7rem, 16vw, 14rem);
+    font-weight: 900;
+    font-style: italic;
+    color: rgba(200,134,74,0.04);
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  .perfil-logout-form {
+    position: absolute;
+    top: 2rem;
+    right: 4rem;
+    z-index: 2;
+  }
+
+  .perfil-logout-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid rgba(245,237,224,0.2);
+    color: rgba(245,237,224,0.45);
+    padding: 0.55rem 1.2rem;
+    transition: all 0.2s;
+  }
+
+  .perfil-logout-btn:hover {
+    border-color: var(--rust);
+    color: var(--rust);
+  }
+
+  /* ===================== GRID ===================== */
+  .perfil-grid {
+    background: var(--steam);
+    padding: 4rem 4rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  /* ===================== TARJETA PUNTOS ===================== */
+  .perfil-card-puntos {
+    background: linear-gradient(135deg, #1a1209 0%, #3d2a14 60%, #2c1a0e 100%);
+    border: 1px solid rgba(200,134,74,0.25);
+    padding: 2.8rem 2.5rem 2.2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 260px;
+  }
+
+  .pcard-rings {
+    position: absolute;
+    top: 50%;
+    right: -60px;
+    transform: translateY(-50%);
+  }
+
+  .pcard-ring {
+    position: absolute;
+    border: 1px solid rgba(200,134,74,0.08);
+    border-radius: 50%;
+  }
+
+  .pcard-ring:nth-child(1) {
+    width: 260px; height: 260px;
+    top: -130px; left: -130px;
+  }
+
+  .pcard-ring:nth-child(2) {
+    width: 180px; height: 180px;
+    top: -90px; left: -90px;
+    border-color: rgba(200,134,74,0.12);
+  }
+
+  .pcard-chip {
+    width: 42px; height: 30px;
+    background: linear-gradient(135deg, var(--accent), var(--caramel));
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pcard-points-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(200,134,74,0.6);
+    margin-bottom: 0.3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pcard-points {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--caramel);
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pcard-points span {
+    font-size: 1.2rem;
+    color: rgba(200,134,74,0.5);
+  }
+
+  .pcard-divider {
+    height: 1px;
+    background: rgba(200,134,74,0.15);
+    margin: 1.5rem 0 1.2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pcard-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pcard-field-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.45rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,237,224,0.3);
+    margin-bottom: 0.2rem;
+  }
+
+  .pcard-field-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: rgba(245,237,224,0.7);
+  }
+
+  .pcard-status {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--caramel);
+  }
+
+  .pcard-dot {
+    width: 6px; height: 6px;
+    background: var(--caramel);
+    border-radius: 50%;
+    animation: pulse 2s ease infinite;
+  }
+
+  .pcard-logo img { width: 28px; opacity: 0.6; }
+
+  /* ===================== DATOS PERSONALES ===================== */
+  .perfil-datos {
+    background: #fff;
+    border: 1px solid rgba(200,134,74,0.15);
+    padding: 2.5rem;
+  }
+
+  .perfil-block-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--caramel);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(200,134,74,0.12);
+  }
+
+  .perfil-datos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem 2rem;
+  }
+
+  .perfil-dato-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(26,18,9,0.38);
+    margin-bottom: 0.25rem;
+  }
+
+  .perfil-dato-value {
+    font-size: 0.9rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .perfil-dato-badge {
+    display: inline-block;
+    background: var(--latte);
+    color: var(--roast);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.52rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+  }
+
+  /* ===================== VENTAJAS ===================== */
+  .perfil-ventajas {
+    background: var(--ink);
+    padding: 2.5rem;
+    grid-column: 1 / -1;
+  }
+
+  .perfil-ventajas .perfil-block-label {
+    color: var(--caramel);
+    border-bottom-color: rgba(200,134,74,0.15);
+  }
+
+  .perfil-ventajas-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(200,134,74,0.1);
+  }
+
+  .perfil-ventaja {
+    background: var(--espresso);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .perfil-ventaja:hover { background: var(--roast); }
+
+  .perfil-ventaja--locked {
+    opacity: 0.5;
+  }
+
+  .perfil-ventaja-icon { font-size: 1.2rem; line-height: 1; }
+
+  .perfil-ventaja-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--caramel);
+  }
+
+  .perfil-ventaja-desc {
+    font-size: 0.78rem;
+    color: rgba(245,237,224,0.45);
+    line-height: 1.6;
+  }
+
+  .perfil-ventaja-badge {
+    margin-top: auto;
+    display: inline-block;
+    background: rgba(61,90,62,0.25);
+    color: var(--green);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.48rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.6rem;
+    width: fit-content;
+  }
+
+  .perfil-ventaja-badge--locked {
+    background: rgba(200,134,74,0.1);
+    color: rgba(200,134,74,0.5);
+  }
+
+  /* ===================== PROGRESO ===================== */
+  .perfil-progreso {
+    background: #fff;
+    border: 1px solid rgba(200,134,74,0.15);
+    padding: 2.5rem;
+    grid-column: 1 / -1;
+  }
+
+  .perfil-progreso-sub {
+    font-size: 0.85rem;
+    color: rgba(26,18,9,0.5);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .perfil-prog-track { position: relative; }
+
+  .perfil-prog-milestones {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.52rem;
+    letter-spacing: 0.1em;
+    color: rgba(26,18,9,0.35);
+    margin-bottom: 0.5rem;
+  }
+
+  .perfil-prog-bar-wrap {
+    height: 6px;
+    background: rgba(200,134,74,0.12);
+    position: relative;
+    margin-bottom: 1.8rem;
+  }
+
+  .perfil-prog-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--caramel), var(--accent));
+    transition: width 1s ease;
+    min-width: 6px;
+  }
+
+  .perfil-prog-thumb {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; height: 20px;
+    background: var(--caramel);
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(200,134,74,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .perfil-prog-thumb span {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.48rem;
+    letter-spacing: 0.1em;
+    color: var(--caramel);
+    white-space: nowrap;
+  }
+
+  .perfil-prog-labels {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .perfil-prog-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(26,18,9,0.4);
+    text-align: center;
+  }
+
+  .perfil-prog-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(200,134,74,0.2);
+    border: 1.5px solid rgba(200,134,74,0.3);
+  }
+
+  .perfil-prog-dot--done {
+    background: var(--caramel);
+    border-color: var(--caramel);
+  }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width: 1024px) {
+    .perfil-ventajas-list { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .perfil-hero { padding: 7rem 2rem 4rem; }
+    .perfil-logout-form { right: 2rem; }
+    .perfil-grid { padding: 2.5rem 1.5rem 4rem; grid-template-columns: 1fr; }
+    .perfil-datos-grid { grid-template-columns: 1fr; }
+    .perfil-ventajas-list { grid-template-columns: 1fr; }
+    .perfil-ventajas { grid-column: 1; }
+    .perfil-progreso { grid-column: 1; }
+  }

@@ -1,0 +1,628 @@
+/* ===================== HERO ===================== */
+.salas-band {
+    background-color: var(--green);
+    height: 90px;
+  }
+  .salas-hero {
+    background: var(--espresso);
+    min-height: 55vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 8rem 4rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .salas-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 75% 40%, rgba(61,90,62,0.18) 0%, transparent 60%);
+  }
+
+  .salas-hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .salas-hero-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--caramel);
+    margin-bottom: 1rem;
+  }
+
+  .salas-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    color: var(--cream);
+    margin-bottom: 1.2rem;
+  }
+
+  .salas-hero-title em {
+    font-style: italic;
+    color: var(--green);
+  }
+
+  .salas-hero-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,237,224,0.35);
+    margin-bottom: 2.5rem;
+  }
+
+  .salas-hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .salas-hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--caramel);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,237,224,0.3);
+  }
+
+  .salas-hero-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(200,134,74,0.2);
+  }
+
+  .salas-hero-deco {
+    position: absolute;
+    right: -1rem;
+    bottom: -3rem;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(8rem, 18vw, 16rem);
+    font-weight: 900;
+    font-style: italic;
+    color: rgba(200,134,74,0.04);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    white-space: nowrap;
+  }
+
+  /* ===================== SALAS DETALLE ===================== */
+  .salas-detalle-section {
+    background: var(--steam);
+  }
+
+  .sala-detalle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 520px;
+  }
+
+  .sala-detalle--reverse {
+    direction: rtl;
+  }
+
+  .sala-detalle--reverse > * {
+    direction: ltr;
+  }
+
+  .sala-detalle-img {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 420px;
+  }
+
+  .sala-detalle-overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  .sala-detalle-badge {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--caramel);
+    color: var(--ink);
+    padding: 0.3rem 0.8rem;
+    z-index: 2;
+  }
+
+  .sala-detalle-cap-pill {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: rgba(26,18,9,0.65);
+    color: var(--cream);
+    padding: 0.35rem 0.9rem;
+    z-index: 2;
+    border: 1px solid rgba(200,134,74,0.25);
+  }
+
+  .sala-detalle-info {
+    background: var(--steam);
+    padding: 4rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.2rem;
+    border-bottom: 1px solid rgba(200,134,74,0.1);
+  }
+
+  .sala-detalle-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--caramel);
+  }
+
+  .sala-detalle-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+
+  .sala-detalle-desc {
+    font-size: 0.88rem;
+    color: rgba(26,18,9,0.65);
+    line-height: 1.75;
+    max-width: 420px;
+  }
+
+  .sala-detalle-amenities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .sala-detalle-amenities .sala-ame {
+    background: var(--latte);
+    color: var(--roast);
+    border: 1px solid rgba(200,134,74,0.2);
+  }
+
+  .sala-detalle-price-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(200,134,74,0.15);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .sala-detalle-price-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(26,18,9,0.4);
+    margin-bottom: 0.3rem;
+  }
+
+  .sala-detalle-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--green);
+    line-height: 1;
+  }
+
+  .sala-detalle-price span {
+    font-size: 1rem;
+    color: rgba(61,90,62,0.6);
+  }
+
+  /* ===================== QUÉ INCLUYE ===================== */
+  .salas-incluye-section {
+    background: var(--ink);
+    padding: 6rem 4rem;
+  }
+
+  .salas-incluye-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .salas-incluye-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--cream);
+    margin-top: 0.6rem;
+  }
+
+  .salas-incluye-title em {
+    font-style: italic;
+    color: var(--caramel);
+  }
+
+  .salas-incluye-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(200,134,74,0.1);
+  }
+
+  .incluye-pillar {
+    background: var(--espresso);
+    padding: 2.5rem 2rem;
+    border-left: 2px solid var(--caramel);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    transition: background 0.25s;
+  }
+
+  .incluye-pillar:hover {
+    background: var(--roast);
+  }
+
+  .incluye-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  .pillar-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--caramel);
+    margin-bottom: 0.4rem;
+  }
+  .pillar-text {
+    color: var(--steam);
+  }
+  /* ===================== FAQ ===================== */
+  .salas-faq-section {
+    background: var(--latte);
+    padding: 6rem 4rem;
+  }
+
+  .salas-faq-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .salas-faq-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-top: 0.6rem;
+  }
+
+  .salas-faq-title em {
+    font-style: italic;
+    color: var(--caramel);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(200,134,74,0.2);
+  }
+
+  .faq-question {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 1.4rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: left;
+    transition: color 0.2s;
+  }
+
+  .faq-question:hover {
+    color: var(--caramel);
+  }
+
+  .faq-icon {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.2rem;
+    color: var(--caramel);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .faq-item.open .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease, padding 0.25s ease;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 200px;
+    padding-bottom: 1.2rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.85rem;
+    color: rgba(26,18,9,0.65);
+    line-height: 1.75;
+  }
+
+  /* ===================== CTA FINAL ===================== */
+  .salas-cta-section {
+    background: var(--espresso);
+    padding: 7rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .salas-cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(61,90,62,0.15) 0%, transparent 60%);
+  }
+
+  .salas-cta-inner {
+    max-width: 580px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .carta-cta-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--caramel);
+    margin-bottom: 1rem;
+  }
+
+  .salas-cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--cream);
+    margin-bottom: 1.2rem;
+  }
+
+  .salas-cta-title em {
+    font-style: italic;
+    color: var(--caramel);
+  }
+
+  .salas-cta-text {
+    font-size: 0.92rem;
+    color: rgba(245,237,224,0.5);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .salas-cta-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* ===================== MODAL ===================== */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26,18,9,0.75);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .modal-box {
+    background: var(--steam);
+    max-width: 520px;
+    width: 100%;
+    padding: 2.8rem 2.5rem 2.5rem;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: translateY(16px);
+    transition: transform 0.3s ease;
+  }
+
+  .modal-overlay.active .modal-box {
+    transform: translateY(0);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.4rem;
+    background: transparent;
+    border: none;
+    font-size: 0.9rem;
+    color: rgba(26,18,9,0.35);
+    transition: color 0.2s;
+    line-height: 1;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .modal-close:hover {
+    color: var(--ink);
+  }
+
+  .modal-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--caramel);
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-sub {
+    font-size: 0.82rem;
+    color: rgba(26,18,9,0.55);
+    line-height: 1.6;
+    margin-bottom: 1.8rem;
+  }
+
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .modal-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+  }
+
+  .modal-field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .modal-field-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(26,18,9,0.5);
+  }
+
+  .modal-input {
+    background: var(--cream);
+    border: 1px solid rgba(200,134,74,0.25);
+    padding: 0.75rem 1rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .modal-input:focus {
+    border-color: var(--caramel);
+  }
+
+  .modal-textarea {
+    min-height: 80px;
+    resize: vertical;
+  }
+
+  .modal-submit {
+    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .modal-confirm {
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--green);
+    padding: 1rem 0 0;
+  }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width: 1024px) {
+    .salas-incluye-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .salas-faq-inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .salas-hero { padding: 7rem 2rem 4rem; }
+    .sala-detalle,
+    .sala-detalle--reverse {
+      grid-template-columns: 1fr;
+      direction: ltr;
+    }
+    .sala-detalle-img { min-height: 280px; }
+    .sala-detalle-info { padding: 2.5rem 2rem; }
+    .salas-incluye-section,
+    .salas-faq-section,
+    .salas-cta-section { padding: 4rem 2rem; }
+    .salas-incluye-grid { grid-template-columns: 1fr 1fr; }
+    .modal-field-row { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .salas-incluye-grid { grid-template-columns: 1fr; }
+    .salas-hero-stats { flex-wrap: wrap; gap: 1.2rem; }
+    .salas-hero-divider { display: none; }
+  }

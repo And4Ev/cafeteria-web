@@ -1,5 +1,197 @@
-<!-- HEADER -->
 <%- include('partials/header') %>
+<link rel="stylesheet" href="/css/pages/contacto.css">
+</header>
 <body>
-<!-- FOOTER -->
+
+  <!-- ===================== HERO CONTACTO ===================== -->
+  <div class="contacto-band"></div>
+  <section class="contacto-hero">
+    <div class="contacto-hero-inner">
+      <div class="contacto-hero-label">— Encuéntranos -</div>
+      <h1 class="contacto-hero-title">Hablemos<br>de <em>café.</em></h1>
+      <p class="contacto-hero-sub">Reservas · Consultas · Colaboraciones · Lo que necesites</p>
+    </div>
+    <div class="contacto-hero-deco" aria-hidden="true">hola</div>
+  </section>
+
+  <!-- ===================== BLOQUE PRINCIPAL ===================== -->
+  <section class="contacto-main">
+
+    <!-- INFO LATERAL -->
+    <aside class="contacto-info">
+
+      <div class="contacto-info-block reveal">
+        <div class="contacto-info-label">Dirección</div>
+        <p class="contacto-info-text">
+          Calle del Tostadero, 14<br>
+          Planta baja, local 2<br>
+          28004 — Madrid
+        </p>
+        <a class="contacto-maps-link" href="https://maps.google.com" target="_blank" rel="noopener">
+          Ver en Google Maps
+        </a>
+      </div>
+
+      <div class="contacto-info-block reveal reveal-delay-1">
+        <div class="contacto-info-label">Contacto directo</div>
+        <p class="contacto-info-text">
+          hola@coffeetime.es<br>
+          +34 910 234 567
+        </p>
+      </div>
+
+      <div class="contacto-info-block reveal reveal-delay-2">
+        <div class="contacto-info-label">Horario</div>
+        <div class="contacto-horario">
+          <div class="contacto-horario-row">
+            <span>Lun – Vie</span>
+            <span>7:30 – 20:00</span>
+          </div>
+          <div class="contacto-horario-row">
+            <span>Sáb – Dom</span>
+            <span>9:00 – 21:00</span>
+          </div>
+          <div class="contacto-horario-row contacto-horario-note">
+            <span>Festivos</span>
+            <span>10:00 – 18:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contacto-info-block reveal reveal-delay-3">
+        <div class="contacto-info-label">Síguenos</div>
+        <div class="contacto-rrss">
+          <a href="#" class="contacto-rrss-link">Instagram</a>
+          <span class="contacto-rrss-sep">·</span>
+          <a href="#" class="contacto-rrss-link">TikTok</a>
+          <span class="contacto-rrss-sep">·</span>
+          <a href="#" class="contacto-rrss-link">LinkedIn</a>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- FORMULARIO -->
+    <div class="contacto-form-wrap reveal">
+      <div class="contacto-form-header">
+        <div class="contacto-form-label">Escríbenos</div>
+        <h2 class="contacto-form-title">¿En qué podemos<br><em>ayudarte?</em></h2>
+      </div>
+
+      <div class="contacto-form" id="contactoForm">
+
+        <div class="cf-motivos">
+          <button type="button" class="cf-motivo active" data-motivo="reserva">Reservar sala</button>
+          <button type="button" class="cf-motivo" data-motivo="consulta">Consulta general</button>
+          <button type="button" class="cf-motivo" data-motivo="colaboracion">Colaboración</button>
+          <button type="button" class="cf-motivo" data-motivo="otro">Otro</button>
+        </div>
+
+        <input type="hidden" id="cfMotivo" value="reserva">
+
+        <div class="cf-row">
+          <div class="cf-field">
+            <label class="cf-label">Nombre</label>
+            <input type="text" class="cf-input" id="cfNombre" placeholder="Tu nombre">
+          </div>
+          <div class="cf-field">
+            <label class="cf-label">Apellido</label>
+            <input type="text" class="cf-input" id="cfApellido" placeholder="Tu apellido">
+          </div>
+        </div>
+
+        <div class="cf-field">
+          <label class="cf-label">Email</label>
+          <input type="email" class="cf-input" id="cfEmail" placeholder="hola@email.com">
+        </div>
+
+        <div class="cf-field">
+          <label class="cf-label">Teléfono <span class="cf-optional">(opcional)</span></label>
+          <input type="tel" class="cf-input" id="cfTelefono" placeholder="+34 600 000 000">
+        </div>
+
+        <div class="cf-field">
+          <label class="cf-label">Mensaje</label>
+          <textarea class="cf-input cf-textarea" id="cfMensaje" placeholder="Cuéntanos qué necesitas…"></textarea>
+        </div>
+
+        <div class="cf-footer">
+          <p class="cf-privacy">
+            Al enviar aceptas nuestra <a href="#">política de privacidad</a>. No compartimos tus datos con terceros.
+          </p>
+          <button type="button" class="btn-primary cf-submit" id="cfSubmit">Enviar mensaje</button>
+        </div>
+
+        <div class="cf-confirm" id="cfConfirm" style="display:none;">
+          <div class="cf-confirm-icon">✓</div>
+          <div class="cf-confirm-title">Mensaje enviado</div>
+          <div class="cf-confirm-text">Gracias por escribirnos. Te responderemos en menos de 24 horas.</div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================== MAPA DECORATIVO ===================== -->
+  <section class="contacto-mapa-section">
+    <div class="contacto-mapa-inner">
+      <div class="mapa-mock" aria-hidden="true">
+        <div class="mapa-grid"></div>
+        <div class="mapa-calle mapa-calle-h" style="top:38%; left:0; width:100%;"></div>
+        <div class="mapa-calle mapa-calle-h" style="top:62%; left:0; width:100%;"></div>
+        <div class="mapa-calle mapa-calle-v" style="left:30%; top:0; height:100%;"></div>
+        <div class="mapa-calle mapa-calle-v" style="left:65%; top:0; height:100%;"></div>
+        <div class="mapa-calle mapa-calle-h mapa-calle--wide" style="top:50%; left:0; width:100%;"></div>
+        <div class="mapa-calle mapa-calle-v mapa-calle--wide" style="left:48%; top:0; height:100%;"></div>
+        <div class="mapa-pin">
+          <div class="mapa-pin-dot"></div>
+          <div class="mapa-pin-pulse"></div>
+          <div class="mapa-pin-label">
+            <span class="mapa-pin-name">La hora del café</span>
+            <span class="mapa-pin-addr">C/ del Tostadero, 14</span>
+          </div>
+        </div>
+      </div>
+      <a href="https://maps.google.com" target="_blank" rel="noopener" class="mapa-cta">
+        Abrir en Google Maps →
+      </a>
+    </div>
+  </section>
+
 <%- include('partials/footer') %>
+
+<script>
+  // ===================== MOTIVOS =====================
+  document.querySelectorAll('.cf-motivo').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.cf-motivo').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('cfMotivo').value = btn.getAttribute('data-motivo');
+    });
+  });
+
+  // ===================== ENVÍO FORMULARIO =====================
+  document.getElementById('cfSubmit').addEventListener('click', () => {
+    const nombre  = document.getElementById('cfNombre').value.trim();
+    const email   = document.getElementById('cfEmail').value.trim();
+    const mensaje = document.getElementById('cfMensaje').value.trim();
+    const submit  = document.getElementById('cfSubmit');
+
+    if (!nombre || !email || !mensaje) {
+      submit.style.background = 'var(--rust)';
+      submit.textContent = 'Rellena los campos obligatorios';
+      setTimeout(() => {
+        submit.style.background = '';
+        submit.textContent = 'Enviar mensaje';
+      }, 2400);
+      return;
+    }
+
+    submit.style.display = 'none';
+    document.querySelector('.cf-privacy').style.display = 'none';
+    document.getElementById('cfConfirm').style.display = 'flex';
+  });
+</script>
+
+</body>

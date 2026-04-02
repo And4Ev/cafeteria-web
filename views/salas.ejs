@@ -1,49 +1,310 @@
-<!-- HEADER -->
 <%- include('partials/header') %>
+<link rel="stylesheet" href="/css/pages/salas.css">
+</header>
 <body>
-<!-- SALAS -->
-<section id="salas">
-    <div class="section-header reveal">
-        <div>
-            <div class="section-label" style="color:var(--green)">03 — Espacio de trabajo</div>
-            <h2 class="section-title" style="color:var(--ink)">Las <em style="color:var(--green)">salas</em></h2>
+
+  <!-- ===================== HERO SALAS ===================== -->
+  <div class="salas-band"></div>
+  <section class="salas-hero">
+    <div class="salas-hero-inner">
+      <div class="salas-hero-label">— Espacio de trabajo-</div>
+      <h1 class="salas-hero-title">Las<br><em>salas.</em></h1>
+      <p class="salas-hero-sub">WiFi 1Gbps · Cafés incluidos · Reserva online</p>
+      <div class="salas-hero-stats">
+        <div class="salas-hero-stat">
+          <span class="stat-num">4</span>
+          <span class="stat-label">salas disponibles</span>
         </div>
-        <a href="#" class="btn-primary" style="background:var(--green); margin-bottom:0.5rem">Ver todas las
-            salas</a>
+        <div class="salas-hero-divider"></div>
+        <div class="salas-hero-stat">
+          <span class="stat-num">2–8</span>
+          <span class="stat-label">personas por sala</span>
+        </div>
+        <div class="salas-hero-divider"></div>
+        <div class="salas-hero-stat">
+          <span class="stat-num">7:30</span>
+          <span class="stat-label">apertura diaria</span>
+        </div>
+      </div>
     </div>
-    <div class="salas-grid">
-        <div class="sala-main reveal">
-            <div class="sala-bg-pattern"></div>
-            <div class="sala-tag">Más popular</div>
-            <div class="sala-amenities">
-                <div class="sala-ame">WiFi 1Gbps</div>
-                <div class="sala-ame">6 enchufes</div>
-                <div class="sala-ame">Pizarra</div>
-                <div class="sala-ame">HDMI</div>
-            </div>
-            <div class="sala-name">The Studio<br>Sala A</div>
-            <div class="sala-desc">Nuestra sala estrella. Capacidad para 6 personas, diseñada para sesiones de
-                trabajo intensas o reuniones de equipo. Incluye combo de bienvenida y cafés ilimitados.</div>
-            <a href="#" class="sala-link">Reservar ahora</a>
+    <div class="salas-hero-deco" aria-hidden="true">salas</div>
+  </section>
+
+  <!-- ===================== SALAS DETALLE ===================== -->
+  <section class="salas-detalle-section">
+
+    <!-- SALA 1 — The Studio Sala A -->
+    <article class="sala-detalle reveal" id="sala-a">
+      <div class="sala-detalle-img" style="background-image: url(/images/sala-de-reuniones.jpg);">
+        <div class="sala-detalle-overlay" style="background: linear-gradient(135deg, rgba(61,90,62,0.55) 0%, rgba(26,40,26,0.7) 100%);"></div>
+        <span class="sala-detalle-badge">Más popular</span>
+        <div class="sala-detalle-cap-pill">Hasta 6 personas</div>
+      </div>
+      <div class="sala-detalle-info">
+        <div class="sala-detalle-label">Sala A</div>
+        <h2 class="sala-detalle-name">The Studio</h2>
+        <p class="sala-detalle-desc">Nuestra sala estrella. Diseñada para sesiones de trabajo intensas o reuniones de equipo. Amplia, luminosa y equipada con todo lo que necesitas para rendir al máximo.</p>
+        <div class="sala-detalle-amenities">
+          <span class="sala-ame">WiFi 1Gbps</span>
+          <span class="sala-ame">6 enchufes</span>
+          <span class="sala-ame">Pizarra</span>
+          <span class="sala-ame">HDMI</span>
+          <span class="sala-ame">Aire acond.</span>
+          <span class="sala-ame">Cafés ilimitados</span>
         </div>
-        <div class="salas-side">
-            <div class="sala-mini reveal">
-                <div class="sala-mini-cap">Hasta 2 personas</div>
-                <div class="sala-mini-name">The Focus Pod</div>
-                <div class="sala-mini-price">12€/h</div>
-            </div>
-            <div class="sala-mini reveal reveal-delay-1">
-                <div class="sala-mini-cap">Hasta 4 personas</div>
-                <div class="sala-mini-name">The Huddle</div>
-                <div class="sala-mini-price">20€/h</div>
-            </div>
-            <div class="sala-mini reveal reveal-delay-2">
-                <div class="sala-mini-cap">Hasta 8 personas</div>
-                <div class="sala-mini-name">The Studio Sala B</div>
-                <div class="sala-mini-price">35€/h</div>
-            </div>
+        <div class="sala-detalle-price-row">
+          <div>
+            <div class="sala-detalle-price-label">Precio por hora</div>
+            <div class="sala-detalle-price">35€<span>/h</span></div>
+          </div>
+          <button class="btn-primary sala-reserva-btn" data-sala="The Studio — Sala A">Reservar ahora</button>
         </div>
+      </div>
+    </article>
+
+    <!-- SALA 2 — The Huddle -->
+    <article class="sala-detalle sala-detalle--reverse reveal" id="sala-huddle">
+      <div class="sala-detalle-img" style="background-image: url(/images/sala-huddle.jpg);">
+        <div class="sala-detalle-overlay" style="background: linear-gradient(135deg, rgba(74,44,20,0.55) 0%, rgba(44,26,14,0.72) 100%);"></div>
+        <div class="sala-detalle-cap-pill">Hasta 4 personas</div>
+      </div>
+      <div class="sala-detalle-info">
+        <div class="sala-detalle-label">Sala B</div>
+        <h2 class="sala-detalle-name">The Huddle</h2>
+        <p class="sala-detalle-desc">La sala perfecta para reuniones de equipo pequeño, entrevistas o sesiones de brainstorming. Acogedora y bien iluminada, con todo lo esencial sin distracciones.</p>
+        <div class="sala-detalle-amenities">
+          <span class="sala-ame">WiFi 1Gbps</span>
+          <span class="sala-ame">4 enchufes</span>
+          <span class="sala-ame">Pizarra</span>
+          <span class="sala-ame">Proyector</span>
+          <span class="sala-ame">Cafés ilimitados</span>
+        </div>
+        <div class="sala-detalle-price-row">
+          <div>
+            <div class="sala-detalle-price-label">Precio por hora</div>
+            <div class="sala-detalle-price">20€<span>/h</span></div>
+          </div>
+          <button class="btn-primary sala-reserva-btn" data-sala="The Huddle — Sala B">Reservar ahora</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- SALA 3 — The Studio Sala B (grande) -->
+    <article class="sala-detalle reveal" id="sala-b">
+      <div class="sala-detalle-img" style="background-image: url(/images/sala-studio-b.jpg);">
+        <div class="sala-detalle-overlay" style="background: linear-gradient(135deg, rgba(26,18,9,0.55) 0%, rgba(61,41,20,0.72) 100%);"></div>
+        <div class="sala-detalle-cap-pill">Hasta 8 personas</div>
+      </div>
+      <div class="sala-detalle-info">
+        <div class="sala-detalle-label">Sala C</div>
+        <h2 class="sala-detalle-name">The Studio<br>Sala B</h2>
+        <p class="sala-detalle-desc">Nuestra sala más grande. Ideal para talleres, formaciones o reuniones de empresa. Capacidad para 8 personas con mesas modulares que se adaptan a cualquier formato.</p>
+        <div class="sala-detalle-amenities">
+          <span class="sala-ame">WiFi 1Gbps</span>
+          <span class="sala-ame">8 enchufes</span>
+          <span class="sala-ame">Pizarra doble</span>
+          <span class="sala-ame">HDMI + proyector</span>
+          <span class="sala-ame">Aire acond.</span>
+          <span class="sala-ame">Cafés ilimitados</span>
+          <span class="sala-ame">Mesas modulares</span>
+        </div>
+        <div class="sala-detalle-price-row">
+          <div>
+            <div class="sala-detalle-price-label">Precio por hora</div>
+            <div class="sala-detalle-price">35€<span>/h</span></div>
+          </div>
+          <button class="btn-primary sala-reserva-btn" data-sala="The Studio — Sala B">Reservar ahora</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- SALA 4 — The Focus Pod -->
+    <article class="sala-detalle sala-detalle--reverse reveal" id="sala-pod">
+      <div class="sala-detalle-img" style="background-image: url(/images/sala-focus-pod.jpg);">
+        <div class="sala-detalle-overlay" style="background: linear-gradient(135deg, rgba(61,90,62,0.45) 0%, rgba(26,40,26,0.65) 100%);"></div>
+        <div class="sala-detalle-cap-pill">Hasta 2 personas</div>
+      </div>
+      <div class="sala-detalle-info">
+        <div class="sala-detalle-label">Sala D</div>
+        <h2 class="sala-detalle-name">The Focus Pod</h2>
+        <p class="sala-detalle-desc">Tu rincón de concentración. Para cuando necesitas desconectar del ruido y entrar en modo foco. Dos personas como máximo, silencio garantizado y café a un paso.</p>
+        <div class="sala-detalle-amenities">
+          <span class="sala-ame">WiFi 1Gbps</span>
+          <span class="sala-ame">2 enchufes</span>
+          <span class="sala-ame">Luz regulable</span>
+          <span class="sala-ame">Cafés ilimitados</span>
+        </div>
+        <div class="sala-detalle-price-row">
+          <div>
+            <div class="sala-detalle-price-label">Precio por hora</div>
+            <div class="sala-detalle-price">12€<span>/h</span></div>
+          </div>
+          <button class="btn-primary sala-reserva-btn" data-sala="The Focus Pod — Sala D">Reservar ahora</button>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ===================== QUÉ INCLUYE ===================== -->
+  <section class="salas-incluye-section">
+    <div class="salas-incluye-header reveal">
+      <div class="section-label" style="color:var(--caramel)">Siempre incluido</div>
+      <h2 class="salas-incluye-title">Lo que viene<br>con cada <em>reserva.</em></h2>
     </div>
-</section>
-<!-- FOOTER -->
+    <div class="salas-incluye-grid">
+      <div class="incluye-pillar reveal">
+        <div class="incluye-icon">☕</div>
+        <div class="pillar-title">Cafés ilimitados</div>
+        <div class="pillar-text">Durante toda tu sesión, cafés de especialidad sin límite. Solo o con leche, tú eliges.</div>
+      </div>
+      <div class="incluye-pillar reveal reveal-delay-1">
+        <div class="incluye-icon">⚡</div>
+        <div class="pillar-title">WiFi 1Gbps</div>
+        <div class="pillar-text">Conexión simétrica de alta velocidad para videollamadas, transferencias y trabajo en la nube.</div>
+      </div>
+      <div class="incluye-pillar reveal reveal-delay-2">
+        <div class="incluye-icon">🎁</div>
+        <div class="pillar-title">Combo bienvenida</div>
+        <div class="pillar-text">Al llegar, un café y una pieza de bollería para empezar con energía. Sin coste adicional.</div>
+      </div>
+      <div class="incluye-pillar reveal reveal-delay-3">
+        <div class="incluye-icon">🔇</div>
+        <div class="pillar-title">Espacio privado</div>
+        <div class="pillar-text">Acceso exclusivo a la sala durante tu reserva. Sin interrupciones, sin compartir.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="salas-faq-section">
+    <div class="salas-faq-inner">
+      <div class="salas-faq-header reveal">
+        <div class="section-label" style="color:var(--caramel)">Dudas frecuentes</div>
+        <h2 class="salas-faq-title">Preguntas<br><em>frecuentes.</em></h2>
+      </div>
+      <div class="faq-list reveal reveal-delay-1">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Cuánto tiempo mínimo puedo reservar?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>El tiempo mínimo de reserva es de 1 hora. A partir de ahí puedes reservar en bloques de 30 minutos. Para sesiones de más de 4 horas te recomendamos escribirnos directamente para ajustar un precio especial.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Puedo cancelar o modificar mi reserva?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sí. Puedes cancelar o modificar tu reserva hasta 24 horas antes sin ningún cargo. Cancelaciones con menos de 24 horas de antelación pueden tener una penalización del 50% del importe.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Puedo traer comida o pedir algo de la carta?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Por supuesto. Puedes pedir cualquier producto de nuestra carta y te lo llevamos directamente a la sala. También puedes traer comida de fuera siempre que no genere olores fuertes que puedan molestar.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Hay aparcamiento cerca?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Estamos en el centro de Madrid con fácil acceso en metro y autobús. A dos minutos a pie encontrarás aparcamiento público. Puedes consultarnos la dirección exacta al hacer la reserva.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Se puede reservar para eventos o formaciones?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sí, adaptamos el espacio para talleres, presentaciones y formaciones. Para eventos de más de 3 horas o con necesidades especiales de montaje, escríbenos a hola@coffeetime.es y te preparamos un presupuesto.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA FINAL ===================== -->
+  <section class="salas-cta-section">
+    <div class="salas-cta-inner reveal">
+      <div class="carta-cta-label">¿Lista para reservar?</div>
+      <h2 class="salas-cta-title">Tu próxima reunión<br>merece buen <em>café.</em></h2>
+      <p class="salas-cta-text">Elige la sala que mejor se adapte a tu equipo y resérvala en menos de un minuto. Sin complicaciones.</p>
+      <div class="salas-cta-btns">
+        <a href="contacto" class="btn-primary">Contactar</a>
+        <a href="carta" class="btn-ghost">Ver la carta</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MODAL RESERVA ===================== -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar">✕</button>
+      <div class="modal-label">Reservar sala</div>
+      <h3 class="modal-title" id="modalTitle">The Studio — Sala A</h3>
+      <p class="modal-sub">Rellena tus datos y nos ponemos en contacto contigo para confirmar la disponibilidad.</p>
+      <div class="modal-form">
+        <div class="modal-field">
+          <label class="modal-field-label">Nombre</label>
+          <input type="text" class="modal-input" placeholder="Tu nombre" id="modalNombre">
+        </div>
+        <div class="modal-field">
+          <label class="modal-field-label">Email</label>
+          <input type="email" class="modal-input" placeholder="hola@email.com" id="modalEmail">
+        </div>
+        <div class="modal-field-row">
+          <div class="modal-field">
+            <label class="modal-field-label">Fecha</label>
+            <input type="date" class="modal-input" id="modalFecha">
+          </div>
+          <div class="modal-field">
+            <label class="modal-field-label">Hora de inicio</label>
+            <input type="time" class="modal-input" id="modalHora" min="07:30" max="20:00">
+          </div>
+        </div>
+        <div class="modal-field">
+          <label class="modal-field-label">Duración</label>
+          <select class="modal-input" id="modalDuracion">
+            <option value="1">1 hora</option>
+            <option value="1.5">1 hora y media</option>
+            <option value="2" selected>2 horas</option>
+            <option value="3">3 horas</option>
+            <option value="4">4 horas</option>
+            <option value="otro">Más de 4 horas (consultar)</option>
+          </select>
+        </div>
+        <div class="modal-field">
+          <label class="modal-field-label">Número de personas</label>
+          <input type="number" class="modal-input" placeholder="Ej: 3" id="modalPersonas" min="1" max="8">
+        </div>
+        <div class="modal-field">
+          <label class="modal-field-label">Notas (opcional)</label>
+          <textarea class="modal-input modal-textarea" placeholder="¿Algo que debamos saber?" id="modalNotas"></textarea>
+        </div>
+        <button class="btn-primary modal-submit" id="modalSubmit">Enviar solicitud</button>
+        <div class="modal-confirm" id="modalConfirm" style="display:none;">
+          <span>✓</span> Solicitud enviada. Te contactaremos pronto.
+        </div>
+      </div>
+    </div>
+  </div>
+
 <%- include('partials/footer') %>
+
+</body>

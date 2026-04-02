@@ -1,5 +1,7 @@
 <!-- HEADER -->
 <%- include('partials/header') %>
+<link rel="stylesheet" href="/css/pages/index.css">
+</header>
 <body>
    
     <!-- HERO -->
@@ -56,14 +58,31 @@
                 <div class="section-label">02 — Lo que servimos</div>
                 <h2 class="section-title">La <em>carta</em></h2>
             </div>
-            <div class="season-toggle">
-                <button class="season-btn active" onclick="setSeason('winter', this)">☕ Invierno</button>
-                <button class="season-btn" onclick="setSeason('summer', this)">🧊 Verano</button>
-            </div>
         </div>
-
         <div class="menu-grid" id="menuGrid">
-            <!-- filled by JS -->
+            <!-- rellena con los productos de la BD -->
+            <% 
+            const categoriasDeseadas = ['verano', 'invierno', 'temporada', 'merienda', 'desayuno', 'bagels', 'bolleria', 'postres'];
+            const mostrados = new Set();
+            
+            productosDB
+                .filter(item => {
+                    const cat = item.nombre_categoria.toLowerCase();
+                    if (categoriasDeseadas.includes(cat) && !mostrados.has(cat)) {
+                        mostrados.add(cat);
+                        return true;
+                    }
+                    return false;
+                })
+                .forEach(item => { 
+        %>
+            <div class="menu-card">
+                <div class="menu-card-cat"><%= item.nombre_categoria %></div>
+                <div class="menu-card-name"><%= item.nombre %></div>
+                <div class="menu-card-desc"><%= item.descripcion %></div>
+                <div class="menu-card-price"><%= item.precio %>€</div>
+            </div>
+          <% }) %>
         </div>
     </section>
     <!-- COMBOS -->

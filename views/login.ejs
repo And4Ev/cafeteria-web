@@ -1,5 +1,121 @@
-<!-- HEADER -->
 <%- include('partials/header') %>
+<link rel="stylesheet" href="/css/pages/login.css">
+</header>
 <body>
-<!-- FOOTER -->
+
+  <!-- ===================== HERO LOGIN ===================== -->
+  <section class="login-page">
+
+    <div class="login-left">
+      <div class="login-brand-label">Área privada</div>
+      <h1 class="login-brand-title">Tu espacio<br><em>Insider.</em></h1>
+      <p class="login-brand-text">Accede a tu cuenta para gestionar tus puntos, consultar tus reservas y disfrutar de los beneficios exclusivos del programa de fidelidad.</p>
+      <div class="login-perks">
+        <div class="login-perk">
+          <span class="login-perk-icon">☕</span>
+          <span>Puntos por cada consumo</span>
+        </div>
+        <div class="login-perk">
+          <span class="login-perk-icon">🗓</span>
+          <span>Reservas con un clic</span>
+        </div>
+        <div class="login-perk">
+          <span class="login-perk-icon">🏷</span>
+          <span>Ofertas exclusivas Insider</span>
+        </div>
+        <div class="login-perk">
+          <span class="login-perk-icon">🔔</span>
+          <span>Acceso anticipado a la carta</span>
+        </div>
+      </div>
+      <div class="login-deco" aria-hidden="true">insider</div>
+    </div>
+
+    <div class="login-right">
+
+      <!-- ===== PANEL LOGIN ===== -->
+      <div class="login-panel" id="panelLogin">
+        <div class="login-panel-label">Bienvenido de vuelta</div>
+        <h2 class="login-panel-title">Acceder</h2>
+
+        <% if (typeof error !== 'undefined' && error) { %>
+          <div class="login-alert login-alert--error"><%= error %></div>
+        <% } %>
+        <% if (typeof success !== 'undefined' && success) { %>
+          <div class="login-alert login-alert--success"><%= success %></div>
+        <% } %>
+
+        <form class="login-form" action="/login" method="POST" id="formLogin">
+          <div class="lf-field">
+            <label class="lf-label">Usuario o email</label>
+            <input type="text" class="lf-input" name="identificador" placeholder="tu@email.com" required autocomplete="username">
+          </div>
+          <div class="lf-field">
+            <label class="lf-label">Contraseña</label>
+            <div class="lf-input-wrap">
+              <input type="password" class="lf-input" name="password" placeholder="••••••••" required autocomplete="current-password" id="loginPass">
+              <button type="button" class="lf-eye" id="eyeLogin" aria-label="Mostrar contraseña">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary lf-submit">Entrar</button>
+        </form>
+
+        <div class="login-switch">
+          ¿No eres Insider aún?
+          <button type="button" class="login-switch-btn" id="btnIrRegistro">Regístrate aquí</button>
+        </div>
+      </div>
+
+      <!-- ===== PANEL REGISTRO ===== -->
+      <div class="login-panel" id="panelRegistro" style="display:none;">
+        <div class="login-panel-label">Únete al programa</div>
+        <h2 class="login-panel-title">Crear cuenta</h2>
+
+        <form class="login-form" action="/registro" method="POST" id="formRegistro">
+          <div class="lf-field">
+            <label class="lf-label">Nombre y Apellido</label>
+            <input type="text" class="lf-input" name="nombre" placeholder="Nombre completo" required>
+          </div>
+          <div class="lf-field">
+            <label class="lf-label">Nombre de usuario</label>
+            <input type="text" class="lf-input" name="username" placeholder="cafetero_23" required autocomplete="username" id="regUsername">
+            <span class="lf-hint" id="hintUsername"></span>
+          </div>
+          <div class="lf-field">
+            <label class="lf-label">Email</label>
+            <input type="email" class="lf-input" name="email" placeholder="hola@email.com" required autocomplete="email">
+          </div>
+          <div class="lf-field">
+            <label class="lf-label">Contraseña</label>
+            <div class="lf-input-wrap">
+              <input type="password" class="lf-input" name="password" placeholder="Mínimo 8 caracteres" required minlength="8" id="regPass" autocomplete="new-password">
+              <button type="button" class="lf-eye" id="eyeReg" aria-label="Mostrar contraseña">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <div class="lf-strength" id="passStrength">
+              <div class="lf-strength-bar" id="strengthBar"></div>
+            </div>
+            <span class="lf-hint" id="hintPass"></span>
+          </div>
+          <div class="lf-field">
+            <label class="lf-label">Repetir contraseña</label>
+            <input type="password" class="lf-input" name="password2" placeholder="Repite tu contraseña" required minlength="8" id="regPass2" autocomplete="new-password">
+            <span class="lf-hint lf-hint--error" id="hintPass2"></span>
+          </div>
+          <button type="submit" class="btn-primary lf-submit" id="btnSubmitReg">Crear cuenta Insider</button>
+        </form>
+
+        <div class="login-switch">
+          ¿Ya tienes cuenta?
+          <button type="button" class="login-switch-btn" id="btnIrLogin">Inicia sesión</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
 <%- include('partials/footer') %>
+</body>
