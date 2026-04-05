@@ -1,16 +1,17 @@
+/* ------------------- LAYOUT ------------------- */
 .login-page {
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
 
-  /* ------------------- LADO IZQUIERDO -------------------*/
+  /* LADO IZQUIERDO */
   .login-left {
     background: var(--espresso);
-    padding: 8rem 4rem 5rem;
+    padding: 6rem 4rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     position: relative;
     overflow: hidden;
   }
@@ -95,7 +96,7 @@
     white-space: nowrap;
   }
 
-  /* ------------------- LADO DERECHO ------------------- */
+  /* LADO DERECHO */
   .login-right {
     background: var(--steam);
     display: flex;
@@ -124,7 +125,12 @@
     font-weight: 900;
     color: var(--ink);
     margin-bottom: 2rem;
-    line-height: 1;
+    line-height: 1.1;
+  }
+
+  .login-panel-title em {
+    font-style: italic;
+    color: var(--caramel);
   }
 
   /* ALERTAS */
@@ -150,7 +156,7 @@
     color: var(--green);
   }
 
-  /* ------------------- FORMULARIO ------------------- */
+  /* FORMULARIO */
   .login-form {
     display: flex;
     flex-direction: column;
@@ -236,18 +242,8 @@
     width: 100%;
     text-align: center;
     justify-content: center;
-  }
-  /* recover */
-  .login-recover {
-    margin-top: 1.5rem;
-    text-align: center;
-  }
-  .login-recover a{
-    color: var(--caramel);
-    font-size: 0.82rem;
-  }
-  .login-recover a:hover{
-    color: rgba(26,18,9,0.45);
+    display: block;
+    text-decoration: none;
   }
 
   /* SWITCH */
@@ -270,13 +266,34 @@
     text-underline-offset: 3px;
     margin-left: 0.3rem;
     transition: opacity 0.2s;
+    cursor: pointer;
   }
 
   .login-switch-btn:hover { opacity: 0.7; }
 
+  /* PANEL ÉXITO */
+  .rec-success-msg {
+    font-size: 0.68rem;
+    padding: 1rem 1.2rem;
+  }
+
+  .rec-exito-text {
+    font-size: 0.88rem;
+    color: rgba(26,18,9,0.5);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .rec-btn-login {
+    box-sizing: border-box;
+  }
   /* ------------------- RESPONSIVE ------------------- */
   @media (max-width: 900px) {
     .login-page { grid-template-columns: 1fr; min-height: auto; }
     .login-left { min-height: 40vh; padding: 7rem 2.5rem 3.5rem; justify-content: flex-end; }
     .login-right { padding: 3.5rem 2rem 5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .login-right { padding: 2.5rem 1.5rem 4rem; }
   }

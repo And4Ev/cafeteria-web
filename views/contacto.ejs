@@ -3,7 +3,7 @@
 </header>
 <body>
 
-  <!-- ===================== HERO CONTACTO ===================== -->
+  <!-- ------------------- HERO CONTACTO ------------------- -->
   <div class="contacto-band"></div>
   <section class="contacto-hero">
     <div class="contacto-hero-inner">
@@ -14,7 +14,7 @@
     <div class="contacto-hero-deco" aria-hidden="true">hola</div>
   </section>
 
-  <!-- ===================== BLOQUE PRINCIPAL ===================== -->
+  <!-- ------------------- BLOQUE PRINCIPAL ------------------- -->
   <section class="contacto-main">
 
     <!-- INFO LATERAL -->
@@ -27,9 +27,6 @@
           Planta baja, local 2<br>
           28004 — Madrid
         </p>
-        <a class="contacto-maps-link" href="https://maps.google.com" target="_blank" rel="noopener">
-          Ver en Google Maps
-        </a>
       </div>
 
       <div class="contacto-info-block reveal reveal-delay-1">
@@ -51,24 +48,8 @@
             <span>Sáb – Dom</span>
             <span>9:00 – 21:00</span>
           </div>
-          <div class="contacto-horario-row contacto-horario-note">
-            <span>Festivos</span>
-            <span>10:00 – 18:00</span>
-          </div>
         </div>
       </div>
-
-      <div class="contacto-info-block reveal reveal-delay-3">
-        <div class="contacto-info-label">Síguenos</div>
-        <div class="contacto-rrss">
-          <a href="#" class="contacto-rrss-link">Instagram</a>
-          <span class="contacto-rrss-sep">·</span>
-          <a href="#" class="contacto-rrss-link">TikTok</a>
-          <span class="contacto-rrss-sep">·</span>
-          <a href="#" class="contacto-rrss-link">LinkedIn</a>
-        </div>
-      </div>
-
     </aside>
 
     <!-- FORMULARIO -->
@@ -81,7 +62,6 @@
       <div class="contacto-form" id="contactoForm">
 
         <div class="cf-motivos">
-          <button type="button" class="cf-motivo active" data-motivo="reserva">Reservar sala</button>
           <button type="button" class="cf-motivo" data-motivo="consulta">Consulta general</button>
           <button type="button" class="cf-motivo" data-motivo="colaboracion">Colaboración</button>
           <button type="button" class="cf-motivo" data-motivo="otro">Otro</button>
@@ -117,7 +97,7 @@
 
         <div class="cf-footer">
           <p class="cf-privacy">
-            Al enviar aceptas nuestra <a href="#">política de privacidad</a>. No compartimos tus datos con terceros.
+            Al enviar aceptas nuestra política de privacidad. No compartimos tus datos con terceros.
           </p>
           <button type="button" class="btn-primary cf-submit" id="cfSubmit">Enviar mensaje</button>
         </div>
@@ -132,37 +112,11 @@
     </div>
 
   </section>
-
-  <!-- ===================== MAPA DECORATIVO ===================== -->
-  <section class="contacto-mapa-section">
-    <div class="contacto-mapa-inner">
-      <div class="mapa-mock" aria-hidden="true">
-        <div class="mapa-grid"></div>
-        <div class="mapa-calle mapa-calle-h" style="top:38%; left:0; width:100%;"></div>
-        <div class="mapa-calle mapa-calle-h" style="top:62%; left:0; width:100%;"></div>
-        <div class="mapa-calle mapa-calle-v" style="left:30%; top:0; height:100%;"></div>
-        <div class="mapa-calle mapa-calle-v" style="left:65%; top:0; height:100%;"></div>
-        <div class="mapa-calle mapa-calle-h mapa-calle--wide" style="top:50%; left:0; width:100%;"></div>
-        <div class="mapa-calle mapa-calle-v mapa-calle--wide" style="left:48%; top:0; height:100%;"></div>
-        <div class="mapa-pin">
-          <div class="mapa-pin-dot"></div>
-          <div class="mapa-pin-pulse"></div>
-          <div class="mapa-pin-label">
-            <span class="mapa-pin-name">La hora del café</span>
-            <span class="mapa-pin-addr">C/ del Tostadero, 14</span>
-          </div>
-        </div>
-      </div>
-      <a href="https://maps.google.com" target="_blank" rel="noopener" class="mapa-cta">
-        Abrir en Google Maps →
-      </a>
-    </div>
-  </section>
-
+  
 <%- include('partials/footer') %>
 
 <script>
-  // ===================== MOTIVOS =====================
+  // ------------------- MOTIVOS -------------------
   document.querySelectorAll('.cf-motivo').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.cf-motivo').forEach(b => b.classList.remove('active'));
@@ -171,15 +125,23 @@
     });
   });
 
-  // ===================== ENVÍO FORMULARIO =====================
-  document.getElementById('cfSubmit').addEventListener('click', () => {
-    const nombre  = document.getElementById('cfNombre').value.trim();
-    const email   = document.getElementById('cfEmail').value.trim();
-    const mensaje = document.getElementById('cfMensaje').value.trim();
-    const submit  = document.getElementById('cfSubmit');
+  // ------------------- ENVÍO FORMULARIO -------------------
+  document.getElementById('cfSubmit').addEventListener('click', async () => {
+    // Capturar valores
+    const datos = {
+        nombre:   document.getElementById('cfNombre').value.trim(),
+        apellido: document.getElementById('cfApellido').value.trim(),
+        email:    document.getElementById('cfEmail').value.trim(),
+        telefono: document.getElementById('cfTelefono').value.trim(),
+        motivo:   document.getElementById('cfMotivo').value,
+        mensaje:  document.getElementById('cfMensaje').value.trim()
+    };
 
-    if (!nombre || !email || !mensaje) {
-      submit.style.background = 'var(--rust)';
+    const submit = document.getElementById('cfSubmit');
+
+    // Validación sencilla
+    if (!datos.nombre || !datos.email || !datos.mensaje) {
+      submit.style.background = '#e74c3c'; // Rojo error
       submit.textContent = 'Rellena los campos obligatorios';
       setTimeout(() => {
         submit.style.background = '';
@@ -188,9 +150,26 @@
       return;
     }
 
-    submit.style.display = 'none';
-    document.querySelector('.cf-privacy').style.display = 'none';
-    document.getElementById('cfConfirm').style.display = 'flex';
+    try {
+      // Enviar datos al servidor
+      const respuesta = await fetch('/contacto/enviar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(datos)
+      });
+
+      if (respuesta.ok) {
+        // Si todo salió bien, mostrar confirmación
+        submit.style.display = 'none';
+        document.querySelector('.cf-privacy').style.display = 'none';
+        document.getElementById('cfConfirm').style.display = 'flex';
+      } else {
+        throw new Error('Error al enviar');
+      }
+    } catch (error) {
+      alert('Hubo un error al enviar el mensaje. Inténtalo de nuevo.');
+      console.error(error);
+    }
   });
 </script>
 

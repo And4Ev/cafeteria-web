@@ -15,7 +15,7 @@ exports.getIndexPage = async (req, res) => {
 exports.getMenuPage = async (req, res) => {
   try {
     const productosDB = await Product.getAll();
-    res.render('carta', { productosDB, extraScripts: ['menu'] }); // cargamos la base de datos y el script
+    res.render('carta', { productosDB, extraScripts: ['menu'] });
   } catch (err) {
     console.error(err);
     res.status(500).send("Error al cargar la carta");
@@ -24,13 +24,8 @@ exports.getMenuPage = async (req, res) => {
 
 // Función para renderizar la página de salas
 exports.getSalasPage = (req, res) => {
-  res.render('salas', {extraScripts: ['reservas'] // Esto buscará public/js/salas.js
+  res.render('salas', {extraScripts: ['reservas'] 
   });
 };
 
-// Función para renderizar Login
-/*exports.getLoginPage = (req, res) => {
-  res.render('login', {extraScripts: ['login'] // Esto buscará public/js/login.js
-  });
-};*/
 

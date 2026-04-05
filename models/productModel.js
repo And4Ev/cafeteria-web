@@ -3,10 +3,10 @@ const pool = require('../config/db');
 const Product = {
     getAll: async () => {
       const query = `
-        SELECT productos.*, categorias.nombre AS nombre_categoria 
-        FROM productos
-        JOIN categorias ON productos.id_categoria = categorias.id_categoria
-        ORDER BY productos.id_producto ASC
+      SELECT p.*, c.nombre AS nombre_categoria
+      FROM productos p
+      JOIN producto_categorias pc ON p.id_producto = pc.id_producto
+      JOIN categorias c ON pc.id_categoria = c.id_categoria
       `;
       const res = await pool.query(query);
       return res.rows;

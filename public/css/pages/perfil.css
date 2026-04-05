@@ -1,4 +1,4 @@
-/* ===================== HERO ===================== */
+/* ------------------- HERO -------------------  */
 .perfil-hero {
     background: var(--espresso);
     min-height: 44vh;
@@ -62,7 +62,7 @@
 
   .perfil-logout-form {
     position: absolute;
-    top: 2rem;
+    top: 7rem;
     right: 4rem;
     z-index: 2;
   }
@@ -84,7 +84,7 @@
     color: var(--rust);
   }
 
-  /* ===================== GRID ===================== */
+  /* ------------------- GRID ------------------- */
   .perfil-grid {
     background: var(--steam);
     padding: 4rem 4rem 6rem;
@@ -93,10 +93,11 @@
     gap: 2rem;
   }
 
-  /* ===================== TARJETA PUNTOS ===================== */
+  /* ------------------- TARJETA PUNTOS ------------------- */
   .perfil-card-puntos {
     background: linear-gradient(135deg, #1a1209 0%, #3d2a14 60%, #2c1a0e 100%);
     border: 1px solid rgba(200,134,74,0.25);
+    border-radius: 15px;
     padding: 2.8rem 2.5rem 2.2rem;
     position: relative;
     overflow: hidden;
@@ -214,7 +215,7 @@
 
   .pcard-logo img { width: 28px; opacity: 0.6; }
 
-  /* ===================== DATOS PERSONALES ===================== */
+  /* ------------------- DATOS PERSONALES ------------------- */
   .perfil-datos {
     background: #fff;
     border: 1px solid rgba(200,134,74,0.15);
@@ -223,7 +224,7 @@
 
   .perfil-block-label {
     font-family: 'DM Mono', monospace;
-    font-size: 0.55rem;
+    font-size: 0.90rem;
     letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--caramel);
@@ -264,7 +265,7 @@
     padding: 0.25rem 0.7rem;
   }
 
-  /* ===================== VENTAJAS ===================== */
+  /* ------------------- VENTAJAS ------------------- */
   .perfil-ventajas {
     background: var(--ink);
     padding: 2.5rem;
@@ -303,7 +304,7 @@
 
   .perfil-ventaja-title {
     font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
+    font-size: 0.70rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--caramel);
@@ -319,9 +320,9 @@
     margin-top: auto;
     display: inline-block;
     background: rgba(61,90,62,0.25);
-    color: var(--green);
+    color: var(--steam);
     font-family: 'DM Mono', monospace;
-    font-size: 0.48rem;
+    font-size: 0.6rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     padding: 0.22rem 0.6rem;
@@ -330,10 +331,10 @@
 
   .perfil-ventaja-badge--locked {
     background: rgba(200,134,74,0.1);
-    color: rgba(200,134,74,0.5);
+    
   }
 
-  /* ===================== PROGRESO ===================== */
+  /* ------------------- PROGRESO ------------------- */
   .perfil-progreso {
     background: #fff;
     border: 1px solid rgba(200,134,74,0.15);
@@ -354,7 +355,7 @@
     display: flex;
     justify-content: space-between;
     font-family: 'DM Mono', monospace;
-    font-size: 0.52rem;
+    font-size: 0.55rem;
     letter-spacing: 0.1em;
     color: rgba(26,18,9,0.35);
     margin-bottom: 0.5rem;
@@ -411,7 +412,7 @@
     align-items: center;
     gap: 0.4rem;
     font-family: 'DM Mono', monospace;
-    font-size: 0.5rem;
+    font-size: 0.55rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: rgba(26,18,9,0.4);
@@ -429,8 +430,198 @@
     background: var(--caramel);
     border-color: var(--caramel);
   }
+  /* ------------------- MIS RESERVAS ------------------- */
+  .perfil-reservas {
+    background: var(--ink);
+    padding: 2.5rem;
+    grid-column: 1 / -1;
+  }
 
-  /* ===================== RESPONSIVE ===================== */
+  .perfil-reservas .perfil-block-label {
+    color: var(--caramel);
+    border-bottom-color: rgba(200,134,74,0.15);
+  }
+
+  /* Lista de tarjetas */
+  .res-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: rgba(200,134,74,0.08);
+  }
+
+  /* Tarjeta individual */
+  .res-card {
+    background: var(--espresso);
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    transition: background 0.2s;
+    overflow: hidden;
+  }
+
+  .res-card:hover { background: var(--roast); }
+
+  /* Bloque de fecha */
+  .res-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 72px;
+    padding: 1.4rem 1rem;
+    gap: 0.1rem;
+    border-right: 1px solid rgba(200,134,74,0.1);
+  }
+
+  .res-date-day-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.48rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(200,134,74,0.5);
+  }
+
+  .res-date-day-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--caramel);
+    line-height: 1;
+  }
+
+  .res-date-month {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.48rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,237,224,0.35);
+  }
+
+  /* Separador decorativo */
+  .res-divider {
+    width: 1px;
+    align-self: stretch;
+    background: rgba(200,134,74,0.08);
+    flex-shrink: 0;
+  }
+
+  /* Info sala + hora */
+  .res-info {
+    flex: 1;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .res-sala {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,237,224,0.85);
+  }
+
+  .res-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .res-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    color: rgba(245,237,224,0.35);
+  }
+
+  .res-meta-item svg { opacity: 0.5; flex-shrink: 0; }
+
+  .res-meta-sep {
+    color: rgba(200,134,74,0.25);
+    font-size: 0.7rem;
+  }
+
+  /* Badge de estado */
+  .res-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.48rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.85rem;
+    margin-right: 1.5rem;
+    border-left: 2px solid;
+    flex-shrink: 0;
+  }
+
+  .res-badge--confirmed {
+    background: rgba(61,90,62,0.2);
+    border-color: var(--green);
+    color: #7ec685;
+  }
+
+  .res-badge--pending {
+    background: rgba(200,134,74,0.12);
+    border-color: var(--caramel);
+    color: var(--caramel);
+  }
+
+  .res-badge--cancelled {
+    background: rgba(139,58,42,0.15);
+    border-color: var(--rust);
+    color: #c0715a;
+  }
+
+  /* Estado vacío */
+  .res-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .res-empty-icon {
+    font-size: 2rem;
+    opacity: 0.35;
+    margin-bottom: 0.3rem;
+  }
+
+  .res-empty-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,237,224,0.4);
+  }
+
+  .res-empty-text {
+    font-size: 0.82rem;
+    color: rgba(245,237,224,0.25);
+  }
+
+  .res-empty-cta {
+    margin-top: 0.8rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--caramel);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.2s;
+  }
+
+  .res-empty-cta:hover { opacity: 0.65; }
+
+  /* ------------------- RESPONSIVE ------------------- */
   @media (max-width: 1024px) {
     .perfil-ventajas-list { grid-template-columns: repeat(2, 1fr); }
   }
@@ -443,4 +634,6 @@
     .perfil-ventajas-list { grid-template-columns: 1fr; }
     .perfil-ventajas { grid-column: 1; }
     .perfil-progreso { grid-column: 1; }
+    .perfil-reservas { grid-column: 1; }
+    .res-badge { margin-right: 1rem; }
   }

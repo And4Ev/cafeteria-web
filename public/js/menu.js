@@ -1,4 +1,4 @@
-// menu carta
+/* menu carta */
 const filterBtns = document.querySelectorAll('.carta-filter-btn');
 const cartaCards = document.querySelectorAll('#cartaMenuGrid .menu-card');
 const emptyState = document.getElementById('cartaEmpty');

@@ -1,4 +1,4 @@
- // ===== CAMBIO PANEL LOGIN / REGISTRO =====
+ /* CAMBIO PANEL LOGIN / REGISTRO  */
   const panelLogin    = document.getElementById('panelLogin');
   const panelRegistro = document.getElementById('panelRegistro');
 
@@ -12,13 +12,12 @@
     panelLogin.style.display    = 'block';
   });
 
-  // Mostrar panel de registro si viene ?panel=registro en la URL
   if (new URLSearchParams(window.location.search).get('panel') === 'registro') {
     panelLogin.style.display    = 'none';
     panelRegistro.style.display = 'block';
   }
 
-  // ===== OJO — MOSTRAR/OCULTAR CONTRASEÑA =====
+  /* MOSTRAR/OCULTAR CONTRASEÑA */
   function toggleEye(inputId, btnId) {
     const input = document.getElementById(inputId);
     const btn   = document.getElementById(btnId);
@@ -30,7 +29,7 @@
   toggleEye('loginPass', 'eyeLogin');
   toggleEye('regPass',   'eyeReg');
 
-  // ===== FUERZA DE CONTRASEÑA =====
+  /* FUERZA DE CONTRASEÑA */
   document.getElementById('regPass').addEventListener('input', function () {
     const v   = this.value;
     const bar = document.getElementById('strengthBar');
@@ -54,7 +53,7 @@
     hint.className       = 'lf-hint' + (score >= 3 ? ' lf-hint--ok' : '');
   });
 
-  // ===== VALIDAR CONTRASEÑAS COINCIDEN =====
+  /* VALIDAR CONTRASEÑAS COINCIDEN */
   document.getElementById('regPass2').addEventListener('input', function () {
     const hint = document.getElementById('hintPass2');
     if (this.value && this.value !== document.getElementById('regPass').value) {
@@ -68,7 +67,7 @@
     }
   });
 
-  // ===== VALIDAR FORMULARIO ANTES DE ENVIAR =====
+  /* VALIDAR FORMULARIO ANTES DE ENVIAR */
   document.getElementById('formRegistro').addEventListener('submit', function (e) {
     const p1 = document.getElementById('regPass').value;
     const p2 = document.getElementById('regPass2').value;

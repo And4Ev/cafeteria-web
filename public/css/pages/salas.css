@@ -1,4 +1,4 @@
-/* ===================== HERO ===================== */
+/* ------------------- HERO ------------------- */
 .salas-band {
     background-color: var(--green);
     height: 90px;
@@ -108,7 +108,7 @@
     white-space: nowrap;
   }
 
-  /* ===================== SALAS DETALLE ===================== */
+  /* ------------------- SALAS DETALLE ------------------- */
   .salas-detalle-section {
     background: var(--steam);
   }
@@ -212,6 +212,8 @@
     background: var(--latte);
     color: var(--roast);
     border: 1px solid rgba(200,134,74,0.2);
+    font-size: 0.7rem;
+    padding: 5px;
   }
 
   .sala-detalle-price-row {
@@ -246,8 +248,28 @@
     font-size: 1rem;
     color: rgba(61,90,62,0.6);
   }
-
-  /* ===================== QUÉ INCLUYE ===================== */
+  .sala-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    background: var(--cream);
+    padding: 5px;
+    color: var(--caramel);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 1;
+    transition: gap 0.2s;
+  }
+  .sala-link:hover {
+    gap: 1rem;
+  }
+  .sala-link::after {
+    content: '→';
+  }
+  /* ------------------- QUÉ INCLUYE ------------------- */
   .salas-incluye-section {
     background: var(--ink);
     padding: 6rem 4rem;
@@ -305,9 +327,10 @@
     margin-bottom: 0.4rem;
   }
   .pillar-text {
-    color: var(--steam);
+    color: var(--cream);
+    font-size: 0.85rem;
   }
-  /* ===================== FAQ ===================== */
+  /* ------------------- FAQ ------------------- */
   .salas-faq-section {
     background: var(--latte);
     padding: 6rem 4rem;
@@ -394,7 +417,7 @@
     line-height: 1.75;
   }
 
-  /* ===================== CTA FINAL ===================== */
+  /* ------------------- CTA FINAL ------------------- */
   .salas-cta-section {
     background: var(--espresso);
     padding: 7rem 4rem;
@@ -451,7 +474,7 @@
     flex-wrap: wrap;
   }
 
-  /* ===================== MODAL ===================== */
+  /* ------------------- MODAL ------------------- */
   .modal-overlay {
     position: fixed;
     inset: 0;
@@ -594,7 +617,7 @@
     padding: 1rem 0 0;
   }
 
-  /* ===================== RESPONSIVE ===================== */
+  /* ------------------- RESPONSIVE ------------------- */
   @media (max-width: 1024px) {
     .salas-incluye-grid {
       grid-template-columns: repeat(2, 1fr);

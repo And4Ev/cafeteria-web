@@ -1,4 +1,4 @@
-/* ===================== CARTA HERO ===================== */
+/* -------------------CARTA HERO ------------------- */
 .carta-band {
     background: var(--caramel);
     height: 88px;
@@ -90,7 +90,7 @@
     white-space: nowrap;
   }
 
-  /* ===================== FILTROS ===================== */
+  /* ------------------- FILTROS ------------------- */
   .carta-filters-bar {
     background: var(--ink);
     padding: 1.4rem 4rem;
@@ -149,7 +149,7 @@
     color: var(--ink);
     border-color: var(--caramel);
   }
-  /* ===================== GRID PRODUCTOS ===================== */
+  /* ------------------- GRID PRODUCTOS ------------------- */
   .carta-menu-section {
     background: var(--ink);
     padding: 3rem 3rem 5rem;
@@ -231,7 +231,10 @@
     font-style: italic;
     color: var(--caramel);
   }
-  
+  .menu-card-price.crossed{
+    text-decoration: line-through;
+    font-size: 1rem;
+  }
   .menu-card-tag {
     position: absolute;
     top: 1rem;
@@ -253,7 +256,7 @@
     text-transform: uppercase;
     color: rgba(245,237,224,0.3);
   }
-   /* ===================== COMBOS ===================== */
+   /* ------------------- COMBOS ------------------- */
    .carta-combos-section {
     background: var(--steam);
     padding: 6rem 4rem;
@@ -391,7 +394,7 @@
     padding: 0.25rem 0.7rem;
   }
 
-  /* ===================== CTA FINAL ===================== */
+  /* ------------------- CTA FINAL ------------------- */
   .carta-cta-section {
     background: var(--espresso);
     padding: 7rem 4rem;
@@ -443,7 +446,7 @@
     flex-wrap: wrap;
   }
 
-/* ===================== RESPONSIVE ===================== */
+/* ------------------- RESPONSIVE ------------------- */
 @media (max-width: 1024px) {
   .carta-combos-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -472,11 +475,5 @@
   }
   .carta-menu-section {
     padding: 2rem 1.5rem 4rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .carta-menu-grid {
-    grid-template-columns: 1fr;
   }
 }

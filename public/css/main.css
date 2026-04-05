@@ -31,7 +31,7 @@
     overflow-x: hidden;
     cursor: none;
   }
- /* custom buttons */
+ /* ------------------- BUTTONS ------------------- */
  .btn-primary {
     background: var(--caramel);
     color: var(--ink);
@@ -105,7 +105,7 @@ textarea,
   display: none;
 }
 
-/* SCROLL REVEAL */
+/* ------------------- SCROLL ------------------- */
 .reveal {
     opacity: 0;
     transform: translateY(30px);

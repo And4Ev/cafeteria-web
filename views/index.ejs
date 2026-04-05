@@ -1,10 +1,10 @@
-<!-- HEADER -->
+<!--  HEADER -->
 <%- include('partials/header') %>
 <link rel="stylesheet" href="/css/pages/index.css">
 </header>
 <body>
    
-    <!-- HERO -->
+    <!-- ------------------- HERO ------------------- -->
     <section id="hero">
         <div class="hero-left">
             <div class="hero-clock">
@@ -19,7 +19,7 @@
         </div>
         <div class="hero-right"><!-- background-image --></div>
     </section>
-    <!-- ABOUT -->
+    <!-- ------------------- ABOUT ------------------- -->
     <section id="about">
         <div class="about-sidebar reveal">
             <div class="about-number">01</div>
@@ -51,41 +51,80 @@
             </div>
         </div>
     </section>
-    <!-- MENU -->
+    <!-- ------------------- MENU ------------------- -->
     <section id="menu">
         <div class="section-header reveal">
             <div>
                 <div class="section-label">02 — Lo que servimos</div>
                 <h2 class="section-title">La <em>carta</em></h2>
             </div>
+            <a href="/carta" class="btn-primary" style="background:var(--caramel); margin-bottom:0.5rem">Ver la
+                carta completa</a>
         </div>
+        <div class="menu-card-cat">Cafés</div>
         <div class="menu-grid" id="menuGrid">
-            <!-- rellena con los productos de la BD -->
+            
+            <!-- productos de la BD -->
             <% 
-            const categoriasDeseadas = ['verano', 'invierno', 'temporada', 'merienda', 'desayuno', 'bagels', 'bolleria', 'postres'];
-            const mostrados = new Set();
+            const categoriaCafes = ['cafe'];
             
             productosDB
                 .filter(item => {
                     const cat = item.nombre_categoria.toLowerCase();
-                    if (categoriasDeseadas.includes(cat) && !mostrados.has(cat)) {
-                        mostrados.add(cat);
-                        return true;
-                    }
-                    return false;
+                        return categoriaCafes.includes(cat);
                 })
+                .slice(0, 4)
                 .forEach(item => { 
         %>
             <div class="menu-card">
-                <div class="menu-card-cat"><%= item.nombre_categoria %></div>
                 <div class="menu-card-name"><%= item.nombre %></div>
                 <div class="menu-card-desc"><%= item.descripcion %></div>
-                <div class="menu-card-price"><%= item.precio %>€</div>
+                <% if (usuarioLogueado) { %>
+                    <div class="menu-card-price crossed"><%= item.precio %>€</div>
+                    <div class="menu-card-price"><%= (item.precio * 0.98) %>€</div>
+                <% } else { %>
+                        <div class="menu-card-price"><%= item.precio %>€</div>
+                    <% } %>
+            </div>
+          <% }) %>
+        </div>
+        <div class="menu-card-cat" style="margin-top: 30px;">Para Comer</div>
+        <div class="menu-grid" id="menuGrid">
+            
+            <!-- productos de la BD -->
+            <% 
+                const categoriaComidas = ['bollería', 'bagel'];
+                const contadores = {}; 
+
+                const productosFiltrados = productosDB.filter(item => {
+                const cat = item.nombre_categoria.toLowerCase();
+
+                    if (categoriaComidas.includes(cat)) {
+                        contadores[cat] = contadores[cat] || 0;
+
+                        if (contadores[cat] < 2) {
+                            contadores[cat]++;
+                            return true;
+                        }
+                    }
+                    return false;
+                });
+                productosFiltrados.forEach(item => { 
+             %>
+            <div class="menu-card">
+                <div class="menu-card-name"><%= item.nombre %></div>
+                <div class="menu-card-desc"><%= item.descripcion %></div>
+                <% if (usuarioLogueado) { %>
+                    <div class="menu-card-price crossed"><%= item.precio %>€</div>
+                    <div class="menu-card-price"><%= (item.precio * 0.98) %>€</div>
+                <% } else { %>
+                        <div class="menu-card-price"><%= item.precio %>€</div>
+                    <% } %>
             </div>
           <% }) %>
         </div>
     </section>
-    <!-- COMBOS -->
+    <!-- ------------------- COMBOS ------------------- -->
     <div class="combos-band">
         <div class="combo-intro reveal">
             <h2>Combos<br>para tu<br><em style="font-style:italic;color:var(--roast)">momento.</em></h2>
@@ -94,24 +133,22 @@
         <div class="combo-card reveal reveal-delay-1">
             <div class="combo-time">7:00 – 11:00</div>
             <div class="combo-name">Buenos días</div>
-            <div class="combo-items">Café solo o con leche + bagel de tu elección + zumo natural.<br>El desayuno que te
-                mereces.</div>
+            <div class="combo-items">Café solo o con leche + bagel de tu elección.</div>
         </div>
         <div class="combo-card reveal reveal-delay-2">
             <div class="combo-time">16:00 – 19:00</div>
             <div class="combo-name">La hora del estudio</div>
-            <div class="combo-items">Café mediano + pieza de bollería + acceso a sala durante 2h.<br>Para los que van a
-                lo que van.</div>
+            <div class="combo-items">Café mediano + pieza de bollería.</div>
         </div>
     </div>
-    <!-- SALAS -->
+    <!-- ------------------- SALAS ------------------- -->
     <section id="salas">
         <div class="section-header reveal">
             <div>
                 <div class="section-label" style="color:var(--green)">03 — Espacio de trabajo</div>
                 <h2 class="section-title" style="color:var(--ink)">Las <em style="color:var(--green)">salas</em></h2>
             </div>
-            <a href="#" class="btn-primary" style="background:var(--green); margin-bottom:0.5rem">Ver todas las
+            <a href="/salas" class="btn-primary" style="background:var(--green); margin-bottom:0.5rem">Ver todas las
                 salas</a>
         </div>
         <div class="salas-grid">
@@ -124,31 +161,26 @@
                     <div class="sala-ame">Pizarra</div>
                     <div class="sala-ame">HDMI</div>
                 </div>
-                <div class="sala-name">The Studio<br>Sala A</div>
+                <div class="sala-name">Sala Mercury<br>Sala 1</div>
                 <div class="sala-desc">Nuestra sala estrella. Capacidad para 6 personas, diseñada para sesiones de
-                    trabajo intensas o reuniones de equipo. Incluye combo de bienvenida y cafés ilimitados.</div>
-                <a href="#" class="sala-link">Reservar ahora</a>
+                    trabajo intensas o reuniones de equipo.</div>
+                <a href="/salas" class="sala-link">Reservar</a>
             </div>
             <div class="salas-side">
                 <div class="sala-mini reveal">
                     <div class="sala-mini-cap">Hasta 2 personas</div>
-                    <div class="sala-mini-name">The Focus Pod</div>
-                    <div class="sala-mini-price">12€/h</div>
+                    <div class="sala-mini-name">Sala Sócrates</div>
+                    <div class="sala-mini-price">10€/h</div>
                 </div>
                 <div class="sala-mini reveal reveal-delay-1">
                     <div class="sala-mini-cap">Hasta 4 personas</div>
-                    <div class="sala-mini-name">The Huddle</div>
-                    <div class="sala-mini-price">20€/h</div>
-                </div>
-                <div class="sala-mini reveal reveal-delay-2">
-                    <div class="sala-mini-cap">Hasta 8 personas</div>
-                    <div class="sala-mini-name">The Studio Sala B</div>
-                    <div class="sala-mini-price">35€/h</div>
+                    <div class="sala-mini-name">Sala Calíope</div>
+                    <div class="sala-mini-price">5€/h</div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- INSIDER -->
+    <!--- ------------------ INSIDER ------------------- -->
     <section id="insider">
         <div class="insider-left">
             <div class="insider-badge reveal">
@@ -163,22 +195,12 @@
                     <div class="perk-text">Cada café suma. Canjéalos por productos o descuentos.</div>
                 </div>
                 <div class="perk">
-                    <div class="perk-icon">🗓</div>
-                    <div class="perk-title">Acceso anticipado</div>
-                    <div class="perk-text">La carta de verano e invierno llega a ti primero.</div>
-                </div>
-                <div class="perk">
-                    <div class="perk-icon">🔔</div>
-                    <div class="perk-title">Novedades exclusivas</div>
-                    <div class="perk-text">Avisos de nuevos orígenes, meriendas y eventos.</div>
-                </div>
-                <div class="perk">
                     <div class="perk-icon">🏷</div>
                     <div class="perk-title">Ofertas Insider</div>
                     <div class="perk-text">Descuentos y combos que no aparecen en carta.</div>
-                </div>
+                </div>  
             </div>
-            <a href="#" class="insider-cta reveal reveal-delay-3">Quiero ser Insider</a>
+            <a href="/login" class="insider-cta reveal reveal-delay-3">Quiero ser Insider</a>
         </div>
         <div class="insider-right">
             <div class="insider-ring"></div>
@@ -187,7 +209,7 @@
                 <div class="card-chip"></div>
                 <div class="card-points-label">Puntos acumulados</div>
                 <div class="card-points">1.240 pts</div>
-                <div class="card-name">Nº Miembro</div>
+                <div class="card-name">Nombe usuario</div>
                 <div class="card-logo">
                     <img src="/images/dibujo-taza-cafe.png" alt="logo taza cafe">
                 </div>

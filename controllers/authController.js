@@ -1,11 +1,12 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/userModel');
+const Reservation = require('../models/reservationModel');
 
 exports.getLoginPage = (req, res) => {
     res.render('login', {
         error: req.session.error || null,
         success: req.session.success || null,
-        extraScripts: ['login'] // Para cargar tu public/js/login.js
+        extraScripts: ['login'] // carga el script.js
     });
     delete req.session.error;
     delete req.session.success;
@@ -13,7 +14,7 @@ exports.getLoginPage = (req, res) => {
 
 exports.postRegistro = async (req, res) => {
     const { nombre, username, email, password, password2 } = req.body;
-    // ... aquí pegas las validaciones (if password !== password2, etc.) del archivo auth.js ...
+    //validaciones (if password !== password2, etc.) del archivo auth.js ...
     try {
         const passwordHash = await bcrypt.hash(password, 12);
         await User.create({ nombre, username, email, passwordHash });
@@ -28,7 +29,7 @@ exports.postRegistro = async (req, res) => {
 exports.postLogin = async (req, res) => {
     const { identificador, password } = req.body;
     const usuario = await User.findByIdentifier(identificador);
-    
+
     if (usuario && await bcrypt.compare(password, usuario.password)) {
         req.session.usuarioId = usuario.id_usuario;
         req.session.username = usuario.username;
@@ -36,39 +37,74 @@ exports.postLogin = async (req, res) => {
     }
     req.session.error = 'Credenciales incorrectas';
     res.redirect('/login');
-}; 
-/**exports.postLogin = async (req, res) => {
-    console.log("¡Intento de login recibido!");
-    console.log("Datos recibidos:", req.body); // Esto te dirá si llegan vacíos
+};
 
-    const { identificador, password } = req.body;
+// Función para mostrar la página recuperar
+exports.getRecuperarPage = (req, res) => {
+    res.render('recuperar', {
+        error: null,
+        exito: false, 
+        extraScripts: ['recuperar'] 
+    });
+};
+
+// Función para procesar el cambio de contraseña
+exports.postRecuperarPassword = async (req, res) => {
+    const { email, password } = req.body; 
 
     try {
-        const usuario = await User.findByIdentifier(identificador);
-        console.log("Usuario encontrado en DB:", usuario ? "SÍ" : "NO");
+        const saltRounds = 12;
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-        if (usuario && await bcrypt.compare(password, usuario.password)) {
-            console.log("¡Contraseña correcta! Creando sesión...");
-            req.session.usuarioId = usuario.id_usuario;
-            
-            // IMPORTANTE: Forzar el guardado de la sesión antes de redirigir
-            return req.session.save(() => {
-                console.log("Sesión guardada. Redirigiendo a /perfil");
-                res.redirect('/perfil');
+        // Actualiza base de datos
+        const usuarioActualizado = await User.updatePassword(email, hashedPassword);
+
+        if (usuarioActualizado) {
+            //Renderiza la misma página pero cambiando las variables
+            return res.render('recuperar', {
+                exito: true, 
+                error: null,
+                extraScripts: ['recuperar'] 
+            });
+        } else {
+            return res.render('recuperar', {
+                exito: false,
+                error: 'El email introducido no pertenece a ningún socio.',
+                extraScripts: ['recuperar']
             });
         }
-
-        console.log("Fallo: Usuario no existe o contraseña mal");
-        res.redirect('/login');
-    } catch (err) {
-        console.error("ERROR CRÍTICO:", err);
-        res.redirect('/login');
+    } catch (error) {
+        console.error(error);
+        res.render('recuperar', { 
+            exito: false, 
+            error: 'Error al procesar la solicitud.',
+            extraScripts: ['recuperar']
+        });
     }
 };
-***/
+
+
 exports.getPerfil = async (req, res) => {
-    const usuario = await User.getProfile(req.session.usuarioId);
-    res.render('perfil', { usuario });
+    try {
+        const id_usuario = req.session.usuarioId;
+
+        //Obtener datos del usuario 
+        const usuario = await User.getProfile(id_usuario);
+
+        //Obtener sus reservas 
+        const misReservas = await Reservation.getReservasPorUsuario(id_usuario);
+
+        //Renderizar pasando AMBOS datos
+        res.render('perfil', {
+            usuario,
+            reservas: misReservas
+        });
+
+    } catch (error) {
+        console.error("Error al cargar el perfil:", error);
+        // Es buena idea manejar el error por si la base de datos falla
+        res.status(500).send("Error al cargar el perfil");
+    }
 };
 
 exports.logout = (req, res) => {

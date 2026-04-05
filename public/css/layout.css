@@ -1,4 +1,4 @@
-/* NAV */
+/* ------------------- NAV ------------------- */
 nav {
     position: fixed;
     top: 0;
@@ -73,7 +73,7 @@ nav {
     color: var(--cream) !important;
   }
 
-  /* FOOTER */
+  /* ------------------- FOOTER ------------------- */
 footer {
     background: var(--espresso);
     padding: 4rem 3rem 2rem;

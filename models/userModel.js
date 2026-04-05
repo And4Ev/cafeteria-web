@@ -1,4 +1,4 @@
-const pool = require('../config/db'); // Usa tu conexión de /config/db.js
+const pool = require('../config/db'); // 
 
 const User = {
     // Buscar por email o username
@@ -22,7 +22,13 @@ const User = {
             [id]
         );
         return res.rows[0];
-    }
+    },
+    // obtener mail para recuperar contraseña
+    updatePassword: async (email, hashedPassword) => {
+    const query = 'UPDATE usuarios SET password = $1 WHERE email = $2 RETURNING *';
+    const result = await pool.query(query, [hashedPassword, email]);
+    return result.rows[0];
+}
 };
 
 module.exports = User;

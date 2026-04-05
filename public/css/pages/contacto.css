@@ -1,4 +1,4 @@
-/* ===================== HERO ===================== */
+/* ------------------- HERO ------------------- */
 .contacto-hero {
     background: var(--espresso);
     min-height: 48vh;
@@ -68,7 +68,7 @@
     white-space: nowrap;
   }
 
-  /* ===================== BLOQUE PRINCIPAL ===================== */
+  /* ------------------- BLOQUE PRINCIPAL ------------------- */
   .contacto-main {
     display: grid;
     grid-template-columns: 1fr 1.6fr;
@@ -167,7 +167,7 @@
     font-size: 0.7rem;
   }
 
-  /* FORMULARIO */
+  /* ------------------- FORMULARIO ------------------- */
   .contacto-form-wrap {
     padding: 5rem 4rem;
     display: flex;
@@ -330,143 +330,7 @@
     line-height: 1.6;
   }
 
-  /* ===================== MAPA DECORATIVO ===================== */
-  .contacto-mapa-section {
-    background: var(--latte);
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .contacto-mapa-inner {
-    position: relative;
-  }
-
-  .mapa-mock {
-    width: 100%;
-    height: 320px;
-    position: relative;
-    overflow: hidden;
-    background: var(--cream);
-  }
-
-  .mapa-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(200,134,74,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(200,134,74,0.06) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-
-  .mapa-calle {
-    position: absolute;
-    background: rgba(200,134,74,0.12);
-  }
-
-  .mapa-calle-h { height: 12px; transform: translateY(-50%); }
-  .mapa-calle-v { width: 12px; transform: translateX(-50%); }
-  .mapa-calle--wide.mapa-calle-h { height: 22px; background: rgba(200,134,74,0.18); }
-  .mapa-calle--wide.mapa-calle-v { width: 22px; background: rgba(200,134,74,0.18); }
-
-  .mapa-pin {
-    position: absolute;
-    top: 50%;
-    left: 48%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .mapa-pin-dot {
-    width: 16px;
-    height: 16px;
-    background: var(--caramel);
-    border-radius: 50%;
-    border: 3px solid #fff;
-    position: relative;
-    z-index: 2;
-    box-shadow: 0 2px 8px rgba(200,134,74,0.4);
-  }
-
-  .mapa-pin-pulse {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    border: 2px solid rgba(200,134,74,0.35);
-    border-radius: 50%;
-    animation: pinPulse 2s ease-out infinite;
-    z-index: 1;
-  }
-
-  @keyframes pinPulse {
-    0%   { transform: translate(-50%, -50%) scale(0.6); opacity: 1; }
-    100% { transform: translate(-50%, -50%) scale(1.8); opacity: 0; }
-  }
-
-  .mapa-pin-label {
-    background: var(--espresso);
-    padding: 0.5rem 0.9rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-    white-space: nowrap;
-    position: relative;
-    z-index: 2;
-  }
-
-  .mapa-pin-label::before {
-    content: '';
-    position: absolute;
-    top: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-bottom: 6px solid var(--espresso);
-  }
-
-  .mapa-pin-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--cream);
-  }
-
-  .mapa-pin-addr {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.5rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--caramel);
-  }
-
-  .mapa-cta {
-    display: block;
-    text-align: center;
-    padding: 1.2rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--roast);
-    text-decoration: none;
-    background: var(--latte);
-    border-top: 1px solid rgba(200,134,74,0.2);
-    transition: background 0.2s, color 0.2s;
-  }
-
-  .mapa-cta:hover {
-    background: var(--caramel);
-    color: var(--ink);
-  }
-
-  /* ===================== RESPONSIVE ===================== */
+  /* ------------------- RESPONSIVE ------------------- */
   @media (max-width: 1024px) {
     .contacto-main {
       grid-template-columns: 1fr 1.3fr;
@@ -484,9 +348,4 @@
     .cf-footer { flex-direction: column; align-items: flex-start; }
     .cf-motivos { width: 100%; }
     .cf-motivo { flex: 1; text-align: center; }
-  }
-
-  @media (max-width: 480px) {
-    .contacto-info { flex-direction: column; }
-    .mapa-mock { height: 220px; }
   }

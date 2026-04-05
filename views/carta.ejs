@@ -3,14 +3,14 @@
 </header>
 <body>
 
-  <!-- ===================== HERO CARTA ===================== -->
+  <!-- ------------------- HERO CARTA ------------------- -->
   <div class="carta-band"></div>
   <section class="carta-hero">
     <div class="carta-hero-inner">
       <div class="carta-hero-label">— Lo que servimos -</div>
       <h1 class="carta-hero-title">Nuestra<br><em>carta.</em></h1>
       <p class="carta-hero-sub">
-        Café de especialidad · Temporada · Bollería · Bagels · Postres
+        Café de especialidad · Bollería · Bagels 
       </p>
       <div class="carta-hero-meta">
         <span>Lun – Vie &nbsp;7:30–20:00</span>
@@ -21,25 +21,25 @@
     <div class="carta-hero-deco" aria-hidden="true">carta</div>
   </section>
 
-  <!-- ===================== FILTROS ===================== -->
+  <!-- ------------------- FILTROS ------------------- -->
   <section class="carta-filters-bar">
     <div class="carta-filters-inner">
       <span class="carta-filters-label">Filtrar por</span>
       <div class="carta-filter-btns">
         <button class="carta-filter-btn active" data-filter="all">Todo</button>
-        <button class="carta-filter-btn" data-filter="verano">Verano</button>
+        <button class="carta-filter-btn" data-filter="cafe">Cafés</button>
         <button class="carta-filter-btn" data-filter="invierno">Invierno</button>
-        <button class="carta-filter-btn" data-filter="temporada">Temporada</button>
+        <button class="carta-filter-btn" data-filter="verano">Verano</button>
         <button class="carta-filter-btn" data-filter="desayuno">Desayunos</button>
-        <button class="carta-filter-btn" data-filter="bagels">Bagels</button>
-        <button class="carta-filter-btn" data-filter="bolleria">Bollería</button>
         <button class="carta-filter-btn" data-filter="merienda">Meriendas</button>
-        <button class="carta-filter-btn" data-filter="postres">Postres</button>
+        <button class="carta-filter-btn" data-filter="bagel">Bagels</button>
+        <button class="carta-filter-btn" data-filter="bollería">Bollería</button>
+        
       </div>
     </div>
   </section>
 
-  <!-- ===================== GRID PRODUCTOS ===================== -->
+  <!-- ------------------- GRID PRODUCTOS ------------------- -->
   <section class="carta-menu-section">
     <div class="carta-menu-grid" id="cartaMenuGrid">
       <% productosDB.forEach(item => { %>
@@ -47,7 +47,15 @@
           <div class="menu-card-cat"><%= item.nombre_categoria %></div>
           <div class="menu-card-name"><%= item.nombre %></div>
           <div class="menu-card-desc"><%= item.descripcion %></div>
-          <div class="menu-card-price"><%= item.precio %>€</div>
+          <% if (usuarioLogueado) { %>
+            <div class="menu-card-price crossed"><%= item.precio %>€</div>
+            <!-- Solo por ser insider tienes un 0.02% de descuento -->
+            <!-- con la primera compra como insider se aplica el 0.02 por ciento y pasas a 
+              tener X puntos la barrita se mueve a nuevo insider -->
+            <div class="menu-card-price"><%= (item.precio * 0.98).toFixed(2) %>€</div>
+            <% } else { %>
+              <div class="menu-card-price"><%= item.precio %>€</div>
+              <% } %>
         </div>
       <% }) %>
     </div>
@@ -56,7 +64,7 @@
     </div>
   </section>
 
-  <!-- ===================== COMBOS EXPANDIDOS ===================== -->
+  <!-- ------------------- COMBOS EXPANDIDOS ------------------- -->
   <section class="carta-combos-section">
     <div class="carta-combos-header reveal">
       <div class="section-label" style="color:var(--caramel)">Ofertas especiales</div>
@@ -76,7 +84,6 @@
         <ul class="carta-combo-list">
           <li>Café solo o con leche (tamaño mediano)</li>
           <li>Bagel de tu elección</li>
-          <li>Zumo natural del día</li>
         </ul>
         <div class="carta-combo-footer">
           <span class="carta-combo-price">7,90€</span>
@@ -92,12 +99,11 @@
           <div class="carta-combo-name">La hora del estudio</div>
         </div>
         <ul class="carta-combo-list">
-          <li>Café mediano (caliente o frío)</li>
+          <li>Café de especialidad</li>
           <li>Pieza de bollería a elegir</li>
-          <li>Acceso a sala privada durante 2h</li>
         </ul>
         <div class="carta-combo-footer">
-          <span class="carta-combo-price">9,50€</span>
+          <span class="carta-combo-price">5,50€</span>
           <span class="carta-combo-tag">Tarde</span>
         </div>
       </div>
@@ -111,73 +117,17 @@
         </div>
         <ul class="carta-combo-list">
           <li>2 cafés de especialidad a elegir</li>
-          <li>2 piezas de bollería o postres</li>
-          <li>1 agua mineral de cortesía</li>
+          <li>2 piezas de bollería o Bagel clásico</li>
         </ul>
         <div class="carta-combo-footer">
-          <span class="carta-combo-price">11,90€</span>
+          <span class="carta-combo-price">14,90€</span>
           <span class="carta-combo-tag">Pareja</span>
         </div>
       </div>
-
-      <!-- COMBO 4 — nuevo -->
-      <div class="carta-combo-card reveal reveal-delay-3">
-        <div class="carta-combo-num">04</div>
-        <div class="carta-combo-header">
-          <div class="carta-combo-time">Todo el día</div>
-          <div class="carta-combo-name">Equipo en sala</div>
-        </div>
-        <ul class="carta-combo-list">
-          <li>Reserva de sala hasta 4 personas (3h)</li>
-          <li>Cafés ilimitados durante la sesión</li>
-          <li>Bandeja de bollería para el grupo</li>
-        </ul>
-        <div class="carta-combo-footer">
-          <span class="carta-combo-price">34,00€</span>
-          <span class="carta-combo-tag">Grupos</span>
-        </div>
-      </div>
-
-      <!-- COMBO 5 — nuevo -->
-      <div class="carta-combo-card reveal">
-        <div class="carta-combo-num">05</div>
-        <div class="carta-combo-header">
-          <div class="carta-combo-time">11:00 – 14:00</div>
-          <div class="carta-combo-name">Media mañana</div>
-        </div>
-        <ul class="carta-combo-list">
-          <li>Café con leche grande</li>
-          <li>Tostada con AOVE y tomate</li>
-          <li>Pieza de fruta de temporada</li>
-        </ul>
-        <div class="carta-combo-footer">
-          <span class="carta-combo-price">6,50€</span>
-          <span class="carta-combo-tag">Mañana</span>
-        </div>
-      </div>
-
-      <!-- COMBO 6 — nuevo -->
-      <div class="carta-combo-card reveal reveal-delay-1">
-        <div class="carta-combo-num">06</div>
-        <div class="carta-combo-header">
-          <div class="carta-combo-time">Fin de semana</div>
-          <div class="carta-combo-name">Brunch del domingo</div>
-        </div>
-        <ul class="carta-combo-list">
-          <li>Bebida caliente + bebida fría</li>
-          <li>Bagel relleno a elegir</li>
-          <li>Postre del día</li>
-        </ul>
-        <div class="carta-combo-footer">
-          <span class="carta-combo-price">13,90€</span>
-          <span class="carta-combo-tag">Especial</span>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- ===================== CTA FINAL ===================== -->
+  <!-- ------------------- CTA FINAL ------------------- -->
   <section class="carta-cta-section">
     <div class="carta-cta-inner reveal">
       <div class="carta-cta-label">¿Algo más?</div>
@@ -194,4 +144,3 @@
 
 <%- include('partials/footer') %>
 
-</body>

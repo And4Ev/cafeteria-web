@@ -38,6 +38,11 @@
             <li><a href="carta">Carta</a></li>
             <li><a href="salas">Salas</a></li>
             <li><a href="contacto">Contacto</a></li>
-            <li><a href="login" class="nav-btn">Acceder</a></li>
+
+            <% if (usuarioLogueado) { %>
+                <a href="/perfil" class="nav-btn">Mi Cuenta</a>
+            <% } else { %>
+                <li><a href="login" class="nav-btn">Acceder</a></li>
+                <% } %>
         </ul>
     </nav>
