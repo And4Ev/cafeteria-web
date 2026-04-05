@@ -64,7 +64,7 @@
         <div class="menu-card-cat">Cafés</div>
         <div class="menu-grid" id="menuGrid">
             
-            <!-- productos de la BD -->
+            <!-- productos de la BD cafés -->
             <% 
             const categoriaCafes = ['cafe'];
             
@@ -81,7 +81,7 @@
                 <div class="menu-card-desc"><%= item.descripcion %></div>
                 <% if (usuarioLogueado) { %>
                     <div class="menu-card-price crossed"><%= item.precio %>€</div>
-                    <div class="menu-card-price"><%= (item.precio * 0.98) %>€</div>
+                    <div class="menu-card-price"><%= (item.precio * 0.98).toFixed(2) %>€</div>
                 <% } else { %>
                         <div class="menu-card-price"><%= item.precio %>€</div>
                     <% } %>
@@ -91,7 +91,7 @@
         <div class="menu-card-cat" style="margin-top: 30px;">Para Comer</div>
         <div class="menu-grid" id="menuGrid">
             
-            <!-- productos de la BD -->
+            <!-- productos de la BD comidas -->
             <% 
                 const categoriaComidas = ['bollería', 'bagel'];
                 const contadores = {}; 
@@ -114,12 +114,7 @@
             <div class="menu-card">
                 <div class="menu-card-name"><%= item.nombre %></div>
                 <div class="menu-card-desc"><%= item.descripcion %></div>
-                <% if (usuarioLogueado) { %>
-                    <div class="menu-card-price crossed"><%= item.precio %>€</div>
-                    <div class="menu-card-price"><%= (item.precio * 0.98) %>€</div>
-                <% } else { %>
-                        <div class="menu-card-price"><%= item.precio %>€</div>
-                    <% } %>
+                <div class="menu-card-price"><%= item.precio %>€</div>
             </div>
           <% }) %>
         </div>
