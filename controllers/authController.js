@@ -3,13 +3,18 @@ const User = require('../models/userModel');
 const Reservation = require('../models/reservationModel');
 
 exports.getLoginPage = (req, res) => {
-    res.render('login', {
-        error: req.session.error || null,
-        success: req.session.success || null,
-        extraScripts: ['login'] // carga el script.js
-    });
+    const error = req.session.error || null;
+    const success = req.session.success || null;
+       
     delete req.session.error;
     delete req.session.success;
+
+    res.render('login', {
+        errorMessage: error,
+        successMessage: success,
+        panel: req.query.panel || 'login', // Para saber qué panel mostrar
+        extraScripts: ['login'] 
+    });
 };
 
 exports.postRegistro = async (req, res) => {
@@ -17,18 +22,18 @@ exports.postRegistro = async (req, res) => {
     //validaciones (if password !== password2, etc.) del archivo auth.js ...
     try {
         const passwordHash = await bcrypt.hash(password, 12);
-        await User.create({ nombre, username, email, passwordHash });
+        await User.createUser({ nombre, username, email, passwordHash });
         req.session.success = '¡Cuenta creada!';
         res.redirect('/login');
     } catch (err) {
-        req.session.error = 'Error al registrarse';
+        req.session.error = 'el email o el usuario ya existe';
         res.redirect('/login?panel=registro');
     }
 };
 
 exports.postLogin = async (req, res) => {
     const { identificador, password } = req.body;
-    const usuario = await User.findByIdentifier(identificador);
+    const usuario = await User.findById(identificador);
 
     if (usuario && await bcrypt.compare(password, usuario.password)) {
         req.session.usuarioId = usuario.id_usuario;
@@ -37,6 +42,33 @@ exports.postLogin = async (req, res) => {
     }
     req.session.error = 'Credenciales incorrectas';
     res.redirect('/login');
+};
+
+exports.getPerfil = async (req, res) => {
+    try {
+        const id_usuario = req.session.usuarioId;
+
+        //Obtener datos del usuario 
+        const usuario = await User.getProfile(id_usuario);
+
+        //Obtener sus reservas 
+        const misReservas = await Reservation.getReservasPorUsuario(id_usuario);
+
+        //Renderizar pasando AMBOS datos
+        res.render('perfil', {
+            usuario,
+            reservas: misReservas
+        });
+
+    } catch (error) {
+        console.error("Error al cargar el perfil:", error);
+        // Es buena idea manejar el error por si la base de datos falla
+        res.status(500).send("Error al cargar el perfil");
+    }
+};
+
+exports.logout = (req, res) => {
+    req.session.destroy(() => res.redirect('/login'));
 };
 
 // Función para mostrar la página recuperar
@@ -81,32 +113,4 @@ exports.postRecuperarPassword = async (req, res) => {
             extraScripts: ['recuperar']
         });
     }
-};
-
-
-exports.getPerfil = async (req, res) => {
-    try {
-        const id_usuario = req.session.usuarioId;
-
-        //Obtener datos del usuario 
-        const usuario = await User.getProfile(id_usuario);
-
-        //Obtener sus reservas 
-        const misReservas = await Reservation.getReservasPorUsuario(id_usuario);
-
-        //Renderizar pasando AMBOS datos
-        res.render('perfil', {
-            usuario,
-            reservas: misReservas
-        });
-
-    } catch (error) {
-        console.error("Error al cargar el perfil:", error);
-        // Es buena idea manejar el error por si la base de datos falla
-        res.status(500).send("Error al cargar el perfil");
-    }
-};
-
-exports.logout = (req, res) => {
-    req.session.destroy(() => res.redirect('/login'));
 };

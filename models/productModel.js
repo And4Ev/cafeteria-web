@@ -1,7 +1,7 @@
 const pool = require('../config/db');
 
 const Product = {
-    getAll: async () => {
+    getProducto: async () => {
       const query = `
       SELECT p.*, c.nombre AS nombre_categoria
       FROM productos p

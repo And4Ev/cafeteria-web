@@ -9,9 +9,6 @@ router.post('/login', yaLogueado, authController.postLogin);
 router.post('/registro', yaLogueado, authController.postRegistro);
 router.get('/perfil', requireLogin, authController.getPerfil);
 router.post('/logout', authController.logout);
-/*router.get('/recuperar', yaLogueado, (req, res) => {
-    res.render('recuperar');
-});*/
 
 
 //página de recuperación de contraseña

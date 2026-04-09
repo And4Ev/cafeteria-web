@@ -39,14 +39,4 @@ const Reservation = {
     }
 };
 
-// Busca reservas de un día concreto para una sala concreta
-const obtenerOcupacion = async (id_sala, fecha) => {
-    const query = `
-        SELECT hora, duracion FROM reservas 
-        WHERE id_sala = $1 AND fecha = $2 AND estado != 'cancelada'
-    `;
-    const result = await pool.query(query, [id_sala, fecha]);
-    return result.rows;
-};
-
 module.exports = Reservation;

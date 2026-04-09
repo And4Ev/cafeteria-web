@@ -33,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // IMPORTACIÓN DE RUTAS 
 const authRoutes = require("./routes/authRoutes"); 
 const pageRoutes = require("./routes/pageRoutes");
+const productRoutes = require("./routes/productRoutes");
 const reservationRoutes = require("./routes/reservationRoutes");
 
 app.use((req, res, next) => {
@@ -41,9 +42,10 @@ app.use((req, res, next) => {
 });
 
 // USO DE RUTAS
-app.use("/", authRoutes); // Rutas de login, registro, perfil, etc.
-app.use("/", pageRoutes); // Rutas generales (index, carta, etc.)
-app.use("/", reservationRoutes);
+app.use("/", authRoutes); // Rutas de login, registro, perfil, recuperación contraseña.
+app.use("/", pageRoutes); // Rutas generales (index, carta, contacto.)
+app.use("/", productRoutes); // Rutas relacionadas con productos 
+app.use("/", reservationRoutes); // Rutas para reserva de salas
 
 // SERVIDOR
 app.listen(PORT, () => {

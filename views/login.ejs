@@ -75,6 +75,12 @@
         <div class="login-panel-label">Únete al programa</div>
         <h2 class="login-panel-title">Crear cuenta</h2>
 
+        <% if (errorMessage) { %>
+          <div style="color: red; background: #ffeeee; padding: 10px; margin-bottom: 10px;">
+              <%= errorMessage %>
+          </div>
+        <% } %>
+
         <form class="login-form" action="/registro" method="POST" id="formRegistro">
           <div class="lf-field">
             <label class="lf-label">Nombre y Apellido</label>

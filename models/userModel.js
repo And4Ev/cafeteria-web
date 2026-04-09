@@ -2,12 +2,12 @@ const pool = require('../config/db'); //
 
 const User = {
     // Buscar por email o username
-    findByIdentifier: async (id) => {
+    findById: async (id) => {
         const res = await pool.query('SELECT * FROM usuarios WHERE email = $1 OR username = $1', [id.toLowerCase().trim()]);
         return res.rows[0];
     },
     // Crear nuevo usuario
-    create: async (data) => {
+    createUser: async (data) => {
         const { nombre, username, email, passwordHash } = data;
         return await pool.query(
             `INSERT INTO usuarios (nombre, username, email, password, puntos, es_socio, fecha_registro)
