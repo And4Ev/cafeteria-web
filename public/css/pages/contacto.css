@@ -337,15 +337,33 @@
     }
     .contacto-form-wrap { padding: 4rem 3rem; }
   }
-
   @media (max-width: 768px) {
-    .contacto-hero { padding: 7rem 2rem 4rem; }
-    .contacto-main { grid-template-columns: 1fr; }
-    .contacto-info { padding: 3.5rem 2rem; flex-direction: row; flex-wrap: wrap; gap: 2rem; }
-    .contacto-info-block { flex: 1 1 200px; }
-    .contacto-form-wrap { padding: 3rem 2rem; }
-    .cf-row { grid-template-columns: 1fr; }
-    .cf-footer { flex-direction: column; align-items: flex-start; }
-    .cf-motivos { width: 100%; }
-    .cf-motivo { flex: 1; text-align: center; }
+    .contacto-hero { 
+      padding: 7rem 2rem 4rem; 
+    }
+    .contacto-main { 
+      grid-template-columns: 1fr; 
+    }
+    .contacto-info { 
+      padding: 3.5rem 2rem; 
+      flex-direction: row; 
+      flex-wrap: wrap; gap: 2rem; 
+    }
+    .contacto-info-block { 
+      flex: 1 1 200px; 
+    }
+    .contacto-form-wrap { 
+      padding: 3rem 2rem; 
+    }
+    .cf-row { 
+      grid-template-columns: 1fr; 
+    }
+    .cf-footer { 
+      flex-direction: column; 
+      align-items: flex-start; 
+    }
+    .cf-motivos { 
+      display: flex;
+      flex-wrap: nowrap; 
+    }
   }

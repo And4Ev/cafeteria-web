@@ -1,151 +1,296 @@
 /* ------------------- NAV ------------------- */
 nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 3rem;
+
+}
+
+nav::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #e8d5b766;
+  border-bottom: 1px solid rgba(200, 134, 74, 0.2);
+  z-index: -1;
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  width: 40px;
+
+}
+
+.nav-logo span {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  color: var(--caramel);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1;
+  width: 70px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--roast);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--caramel);
+}
+
+.nav-btn {
+  background: var(--ink);
+  color: var(--cream) !important;
+  padding: 0.55rem 1.2rem;
+  border-radius: 2rem;
+  transition: background 0.2s !important;
+}
+
+.nav-btn:hover {
+  background: var(--roast) !important;
+  color: var(--cream) !important;
+}
+
+/* ------------------- HAMBURGER ------------------- */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  padding: 0;
+  z-index: 200;
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--roast);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Estado abierto */
+.nav-hamburger.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav-hamburger.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Overlay del menú móvil */
+.nav-mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 18, 9, 0.5);
+  z-index: 98;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-mobile-overlay.is-open {
+  opacity: 1;
+}
+
+/* ------------------- FOOTER ------------------- */
+footer {
+  background: var(--espresso);
+  padding: 4rem 3rem 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  border-top: 1px solid rgba(200, 134, 74, 0.15);
+}
+
+.footer-brand h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.footer-brand p {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--caramel);
+  margin-bottom: 1.2rem;
+}
+
+.footer-brand span {
+  font-size: 0.82rem;
+  color: rgba(245, 237, 224, 0.4);
+  line-height: 1.6;
+  display: block;
+}
+
+.footer-col h4 {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--caramel);
+  margin-bottom: 1.2rem;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  font-size: 0.82rem;
+  color: rgba(245, 237, 224, 0.45);
+  margin-bottom: 0.6rem;
+  cursor: none;
+  transition: color 0.2s;
+}
+
+.footer-col li:hover {
+  color: var(--cream);
+}
+
+.footer-bottom {
+  grid-column: 1 / -1;
+  border-top: 1px solid rgba(200, 134, 74, 0.1);
+  padding-top: 1.5rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom p {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  color: rgba(245, 237, 224, 0.25);
+}
+@media (max-width: 900px) {
+  .nav-btn {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}
+/* ------------------- RESPONSIVE ------------------- */
+@media (max-width: 600px) {
+  nav {
+    padding: 1rem;
+  }
+  .nav-hamburger {
+    display: flex;
+  }
+  .nav-links {
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.2rem 3rem;
-  
-  }
-  
-  nav::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: #e8d5b766;
-    border-bottom: 1px solid rgba(200, 134, 74, 0.2);
-    z-index: -1;
-  }
-  
-  .nav-logo {
-    display: flex;
+    right: -100%;
+    width: min(300px, 85vw);
+    height: 100vh;
+    background: var(--espresso);
     flex-direction: column;
-    width: 40px;
-  
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    padding: 5rem 2.5rem 3rem;
+    z-index: 99;
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 1px solid rgba(200, 134, 74, 0.15);
   }
-  
-  .nav-logo span {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.55rem;
-    letter-spacing: 0.25em;
-    color: var(--caramel);
-    font-weight: 300;
-    text-transform: uppercase;
-    line-height: 1;
-    width: 70px;
+  .nav-links.is-open {
+    right: 0;
   }
-  
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-    align-items: center;
+  .nav-links li {
+    width: 100%;
+    border-bottom: 1px solid rgba(200, 134, 74, 0.08);
   }
-  
+  .nav-links li:last-child {
+    border-bottom: none;
+    margin-top: 1.5rem;
+  }
   .nav-links a {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--roast);
-    text-decoration: none;
-    transition: color 0.2s;
+    display: block;
+    padding: 1rem 0;
+    color: var(--cream);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
   }
-  
   .nav-links a:hover {
     color: var(--caramel);
   }
-  
   .nav-btn {
-    background: var(--ink);
-    color: var(--cream) !important;
-    padding: 0.55rem 1.2rem;
+    background: var(--caramel) !important;
+    color: var(--ink) !important;
     border-radius: 2rem;
-    transition: background 0.2s !important;
-  }
-  
-  .nav-btn:hover {
-    background: var(--roast) !important;
-    color: var(--cream) !important;
+    text-align: center;
+    max-width: 60%;
+    margin-left: -5px;
   }
 
-  /* ------------------- FOOTER ------------------- */
-footer {
-    background: var(--espresso);
-    padding: 4rem 3rem 2rem;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
-    border-top: 1px solid rgba(200, 134, 74, 0.15);
+  .nav-btn:hover {
+    background: var(--accent) !important;
   }
-  
-  .footer-brand h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 900;
-    color: var(--cream);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-  
-  .footer-brand p {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.55rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--caramel);
-    margin-bottom: 1.2rem;
-  }
-  
-  .footer-brand span {
-    font-size: 0.82rem;
-    color: rgba(245, 237, 224, 0.4);
-    line-height: 1.6;
+
+  .nav-mobile-overlay {
     display: block;
   }
-  
-  .footer-col h4 {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--caramel);
-    margin-bottom: 1.2rem;
+
+  /* Footer mobile */
+  footer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
-  
-  .footer-col ul {
-    list-style: none;
+
+  .footer-brand {
+    text-align: center;
   }
-  
-  .footer-col li {
-    font-size: 0.82rem;
-    color: rgba(245, 237, 224, 0.45);
-    margin-bottom: 0.6rem;
-    cursor: none;
-    transition: color 0.2s;
+
+  .footer-col {
+    text-align: center;
   }
-  
-  .footer-col li:hover {
-    color: var(--cream);
-  }
-  
+
   .footer-bottom {
-    grid-column: 1 / -1;
-    border-top: 1px solid rgba(200, 134, 74, 0.1);
-    padding-top: 1.5rem;
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
   }
-  
-  .footer-bottom p {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.55rem;
-    letter-spacing: 0.15em;
-    color: rgba(245, 237, 224, 0.25);
-  }
+}

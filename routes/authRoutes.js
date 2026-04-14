@@ -6,6 +6,7 @@ const { requireLogin, yaLogueado } = require('../middlewares/authMiddleware');
 
 router.get('/login', yaLogueado, authController.getLoginPage);
 router.post('/login', yaLogueado, authController.postLogin);
+router.post('/login', yaLogueado, authController.postRegistro);
 router.post('/registro', yaLogueado, authController.postRegistro);
 router.get('/perfil', requireLogin, authController.getPerfil);
 router.post('/logout', authController.logout);

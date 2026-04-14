@@ -1,4 +1,28 @@
-//MENU HAMBURGUESA---PENSAR
+//MENU HAMBURGUESA
+const navToggle  = document.getElementById('navToggle');
+const navLinks   = document.getElementById('navLinks');
+const navOverlay = document.getElementById('navOverlay');
+
+function toggleNav() {
+  navToggle.classList.toggle('is-open');
+  navLinks.classList.toggle('is-open');
+  navOverlay.classList.toggle('is-open');
+  // Bloquear scroll del body mientras el menú está abierto
+  document.body.style.overflow = navLinks.classList.contains('is-open') ? 'hidden' : '';
+}
+
+if (navToggle) {
+  navToggle.addEventListener('click', toggleNav);
+  navOverlay.addEventListener('click', toggleNav);
+
+  // Cerrar al hacer clic en cualquier enlace del menú
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (navLinks.classList.contains('is-open')) toggleNav();
+    });
+  });
+}
+
 /*-------------------CURSOR — granito de café */
 const cursor = document.getElementById('cursor');
 

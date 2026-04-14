@@ -33,16 +33,24 @@
     <!-- NAV -->
     <nav>
         <a href="/" class="nav-logo"><img src="/images/dibujo-taza-cafe.png" alt=""><span></span></a>
-        <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
             <li><a href="/">Home</a></li>
             <li><a href="carta">Carta</a></li>
             <li><a href="salas">Salas</a></li>
             <li><a href="contacto">Contacto</a></li>
-
-            <% if (usuarioLogueado) { %>
-                <a href="/perfil" class="nav-btn">Mi Cuenta</a>
-            <% } else { %>
-                <li><a href="login" class="nav-btn">Acceder</a></li>
-                <% } %>
+            <li>
+                <% if (usuarioLogueado) { %>
+                    <a href="/perfil" class="nav-btn">Mi Cuenta</a>
+                
+                <% } else { %>
+                    <a href="login" class="nav-btn">Acceder</a>
+                    <% } %>
+            </li>
         </ul>
+    
+    <button class="nav-hamburger" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-mobile-overlay" id="navOverlay"></div>
+
     </nav>
