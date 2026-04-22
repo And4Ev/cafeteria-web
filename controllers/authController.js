@@ -19,7 +19,7 @@ exports.getLoginPage = (req, res) => {
 
 exports.postRegistro = async (req, res) => {
     const { nombre, username, email, password, password2 } = req.body;
-    //validaciones (if password !== password2, etc.) del archivo auth.js ...
+    
     try {
         const passwordHash = await bcrypt.hash(password, 12);
         await User.createUser({ nombre, username, email, passwordHash });

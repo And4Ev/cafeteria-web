@@ -38,11 +38,11 @@
         <div class="login-panel-label">Bienvenido de vuelta</div>
         <h2 class="login-panel-title">Acceder</h2>
 
-        <% if (typeof error !== 'undefined' && error) { %>
-          <div class="login-alert login-alert--error"><%= error %></div>
+        <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+          <div class="login-alert login-alert--error"><%= errorMessage %></div>
         <% } %>
-        <% if (typeof success !== 'undefined' && success) { %>
-          <div class="login-alert login-alert--success"><%= success %></div>
+        <% if (typeof successMessage !== 'undefined' && successMessage) { %>
+          <div class="login-alert login-alert--success"><%= successMessage %></div>
         <% } %>
 
         <form class="login-form" action="/login" method="POST" id="formLogin">
