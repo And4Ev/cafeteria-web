@@ -5,7 +5,7 @@ const path = require("path");
 require('dotenv').config(); 
 
 const app = express();
-const PORT = process.env.DATABASE_URL || 3000;
+const PORT = process.env.PORT || 3000;
 
 // MIDDLEWARES DE PARSEO 
 app.use(express.urlencoded({ extended: true }));
