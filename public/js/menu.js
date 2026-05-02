@@ -13,7 +13,7 @@ filterBtns.forEach(btn => {
 
     cartaCards.forEach(card => {
       const cat = card.getAttribute('data-cat');
-      const show = filter === 'all' || cat === filter;
+      const show = filter === 'cafe' || cat === filter;
       card.style.display = show ? 'block' : 'none';
       if (show) visible++;
     });

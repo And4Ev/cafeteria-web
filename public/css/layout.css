@@ -116,17 +116,19 @@ nav::before {
 
 /* Overlay del menú móvil */
 .nav-mobile-overlay {
-  display: none;
+  display: block;
   position: fixed;
   inset: 0;
   background: rgba(26, 18, 9, 0.5);
   z-index: 98;
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.3s ease;
 }
 
 .nav-mobile-overlay.is-open {
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* ------------------- FOOTER ------------------- */
