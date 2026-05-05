@@ -23,31 +23,31 @@ PostgreSQL.
 - Diseño Responsive: Totalmente adaptado a dispositivos móviles y tablets.
 - Contacto Directo: Formulario de contacto que almacena mensajes en el servidor.
 
-## Stack Tecnológico
-# Tecnología
-   Frontend
-      EJS (Embedded JavaScript), CSS3, JavaScrip
-   Backednd
-      Node.js, Express.js
-   Base de datos
-      PostgrgeSQL
-   Seguridad
-      Bcrypt (Hashing de contraseñas)
-   Entorno
-      Visual estudio code
+# Stack Tecnológico
+### Tecnología
+### Frontend
+EJS (Embedded JavaScript), CSS3, JavaScrip
+### Backednd
+Node.js, Express.js
+### Base de datos
+PostgrgeSQL
+### Seguridad
+Bcrypt (Hashing de contraseñas)
+### Entorno
+Visual estudio code
 
 ## Requisitos previos
 Instalación node.js y postgreSQL Instalación y configuración Instalar dependencias
 ### Inicializar proyecto Node
-## Comando ```bash
-npm init -y ```
-Crea un archivo package.json en el proyecto. # Anotaciones del proyecto
+## Comando bash
+       npm init -y 
+Creaa un archivo package.json en el proyecto
 ## Nodemon
-Comando de instalación
-```bash
-npm install --save-dev nodemon ```
-# Instalación del paquete pg npm install pg
-
+# Comando de instalación bash
+    npm install --save-dev nodemon    
+# Instalación del paquete pg 
+      npm install pg
+# Estructura de directorios
 ```
 proyecto-cafeteria
 ├─ README.md
